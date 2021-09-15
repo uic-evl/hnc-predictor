@@ -1,12 +1,46 @@
 import './App.css';
 
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Row, Col, Form} from 'react-bootstrap'
 
 function App() {
   return (
     <Container fluid>
     <Row>
-      <Col className="form" md="6"></Col>
+      <Col className="form" md="6">
+        <Form.Group controlId="formGridState">
+          <Form.Label>Age</Form.Label>
+          <Form.Select defaultValue="">
+            <option></option>
+            <option></option>
+          </Form.Select>
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <Form.Label>T Stage</Form.Label>
+          <br/>
+          <Form.Check
+            inline
+            label="1"
+            name="group1"
+            type="radio"
+            id={`inline-radio-1`}
+          />
+          <Form.Check
+            inline
+            label="2"
+            name="group1"
+            type="radio"
+            id={`inline-radio-2`}
+          />
+          <Form.Check
+            inline
+            label="3"
+            type="radio"
+            id={`inline-radio-3`}
+          />
+        </Form.Group>
+
+      </Col>
       <Col className="linePlot" md="6"></Col>
     </Row>
   </Container>
