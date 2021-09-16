@@ -1,46 +1,45 @@
 import './App.css';
 
-import {Container, Row, Col, Form} from 'react-bootstrap'
+import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+
+import {post} from 'axios'
+import { useEffect, useState } from 'react';
+
+import {FormView} from './components/FormView'
 
 function App() {
+  const defaultVal = {
+    "AGE": ">75",
+    "Performance_score": "0",
+    "pack_years": ">50",
+    "site" : "Hypopharynx",
+    "T_stage_LC" : "T4",
+    "T_stage" : "T4",
+    "N_stage" : "N2",
+    "HPV.P16.status" : "Positive"
+  };
+
+  const [prediction, setPrediction] = useState(null)
+
+
+  const handleButtonClick = () =>{
+    console.log("i am clicked")
+    post(
+      'http://127.0.0.1:5000/backend',
+      {data:defaultVal}
+    ).then((response) => {
+      console.log("connection created")
+      console.log(response.data)
+        setPrediction(response.data)
+    }).catch((error) => {
+      console.log(error)
+    });
+  }
+
   return (
     <Container fluid>
     <Row>
-      <Col className="form" md="6">
-        <Form.Group controlId="formGridState">
-          <Form.Label>Age</Form.Label>
-          <Form.Select defaultValue="">
-            <option></option>
-            <option></option>
-          </Form.Select>
-        </Form.Group>
-        <br/>
-        <Form.Group>
-          <Form.Label>T Stage</Form.Label>
-          <br/>
-          <Form.Check
-            inline
-            label="1"
-            name="group1"
-            type="radio"
-            id={`inline-radio-1`}
-          />
-          <Form.Check
-            inline
-            label="2"
-            name="group1"
-            type="radio"
-            id={`inline-radio-2`}
-          />
-          <Form.Check
-            inline
-            label="3"
-            type="radio"
-            id={`inline-radio-3`}
-          />
-        </Form.Group>
-
-      </Col>
+      <FormView onButtonClick={handleButtonClick}/>
       <Col className="linePlot" md="6"></Col>
     </Row>
   </Container>

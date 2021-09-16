@@ -15,7 +15,8 @@ CORS(app)
 @app.route("/backend", methods=['GET', 'POST'])
 @cross_origin()
 def backend():
-    # data = request.json
+    frontData = request.json
+    new_data = frontData['data']
     robjects.r('''
         survivalCalculation <- function(dataVal){
             library(prodlim)
@@ -65,7 +66,7 @@ def backend():
 
     for i in range(len(result)):
         array = np.array(result[i])
-        survival[i] = array.tolist()
+        survival.append(array.tolist())
     return jsonify(survival)
 
 
