@@ -44,29 +44,23 @@ def backend():
             
         ''')
 
-    d = {
-    'AGE': ">75",
-    "Performance_score": "0",
-    "pack_years": ">50",
-    "site" : "Hypopharynx",
-    "T_stage_LC" : "T4",
-    "T_stage" : "T4",
-    "N_stage" : "N2",
-    "HPV.P16.status" : "Positive"
-    }
+    # convert the received data to r dataframe
+    df = robjects.DataFrame(new_data)
 
-    df = pd.DataFrame(data=d, index=[0])
-    pandas2ri.activate()
-    r_dataframe =  pandas2ri.py2ri(df)
+    # creating the r function into python environment
     survivalCalculationa = robjects.r['survivalCalculation']
-    result = survivalCalculationa(r_dataframe)
-
+    # calling the function
+    result = survivalCalculationa(df)
+    
+    # creating list to save the data
     survival = list()
-    # local_control = list()
 
+    # saving the data
     for i in range(len(result)):
         array = np.array(result[i])
         survival.append(array.tolist())
+
+    # returning the data to the frontend
     return jsonify(survival)
 
 
