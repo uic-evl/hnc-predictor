@@ -1,11 +1,12 @@
 import './App.css';
 
-import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+import {Container, Row} from 'react-bootstrap'
 
 import {post} from 'axios'
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 
 import {FormView} from './components/FormView'
+import {LineView} from './components/LineView/LineView'
 
 function App() {
   const defaultVal = {
@@ -40,7 +41,7 @@ function App() {
     <Container fluid>
     <Row>
       <FormView onButtonClick={handleButtonClick}/>
-      <Col className="linePlot" md="6"></Col>
+      <LineView />
     </Row>
   </Container>
   );
