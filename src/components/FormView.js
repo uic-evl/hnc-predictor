@@ -1,6 +1,6 @@
 import { Form, Col, Button } from "react-bootstrap"
 export   const FormView = ({onButtonClick}) =>(
-    <Col className="form" md="6">
+    <Col className="form" md="4">
         <Form.Group controlId="formGridState">
           <Form.Label>Age</Form.Label>
           <Form.Select defaultValue="">
@@ -37,7 +37,7 @@ export   const FormView = ({onButtonClick}) =>(
         <Button variant="primary"
           onClick={onButtonClick}
         >
-          Primary
+          Submit
         </Button>
 
       </Col>

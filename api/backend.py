@@ -53,7 +53,7 @@ def backend():
     result = survivalCalculationa(df)
     
     # creating list to save the data
-    survival = list()
+    survival = []
 
     # saving the data
     for i in range(len(result)):

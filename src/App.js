@@ -29,19 +29,35 @@ function App() {
       'http://127.0.0.1:5000/backend',
       {data:defaultVal}
     ).then((response) => {
-      console.log("connection created")
+      // console.log("connection created")
       console.log(response.data)
         setPrediction(response.data)
     }).catch((error) => {
       console.log(error)
     });
   }
+  if(!prediction){
+    return (
+      <Container fluid>
+      <Row>
+        <FormView onButtonClick={handleButtonClick}/>
+        {/* <LineView 
+          data={prediction}
+        /> */}
+      </Row>
+    </Container>
+    );
+    
+  }
+
 
   return (
     <Container fluid>
     <Row>
       <FormView onButtonClick={handleButtonClick}/>
-      <LineView />
+      <LineView 
+        data={prediction}
+      />
     </Row>
   </Container>
   );
