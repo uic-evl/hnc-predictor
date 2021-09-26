@@ -26,7 +26,7 @@ function App() {
   const handleButtonClick = () =>{
     console.log("i am clicked")
     post(
-      'http://127.0.0.1:5000/backend',
+      'http://127.0.0.1:8080/backend',
       {data:defaultVal}
     ).then((response) => {
       // console.log("connection created")

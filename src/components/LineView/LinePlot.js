@@ -7,8 +7,8 @@ export const LinePlot = ({
     color,
     time 
     }) => {
-        console.log("in line plot")
-        console.log(data[0])
+        // console.log("in line plot")
+        // console.log(data[0])
         return(
         <g className='mark'> 
             <path 
@@ -16,13 +16,13 @@ export const LinePlot = ({
                 stroke={color}
                 d={line()
                     .x((d,i) => {
-                        console.log("line plot d")
-                        console.log(d)
+                        // console.log("line plot d")
+                        // console.log(d)
                         return xScale(time[i])
                     })
                     .y((d,i) => {
-                        console.log("line plot i")
-                        console.log(time[i])
+                        // console.log("line plot i")
+                        // console.log(time[i])
                         return yScale(d)
                     })
                     // .curve(curveNatural)

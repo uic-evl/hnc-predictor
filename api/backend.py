@@ -1,11 +1,11 @@
 from flask import Flask, json, jsonify, request
 from flask_cors import CORS, cross_origin
-import pandas as pd
+# import pandas as pd
 import numpy as np
-import rpy2
+# import rpy2
 import rpy2.robjects as robjects
-from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
-from rpy2.robjects import pandas2ri
+# from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
+# from rpy2.robjects import pandas2ri
 
 
 app = Flask(__name__)
