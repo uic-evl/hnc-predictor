@@ -1,3 +1,5 @@
+import React from "react";
+
 export const AxisBottom = ({xScale, yScale, scaleOffset, innerHeight}) => {
     const [xStart, xEnd] = xScale.range();
     const [, yEnd] = yScale.range();
@@ -9,7 +11,7 @@ export const AxisBottom = ({xScale, yScale, scaleOffset, innerHeight}) => {
                 {ticks.map((t, i) => {
                     const x = xScale(t);
                     return (
-                    <>
+                    <React.Fragment key={i}>
                         <line x1={x} x2={x} y1={yEnd} y2={yEnd + scaleOffset}/>
                         <text
                         x={x}
@@ -17,7 +19,7 @@ export const AxisBottom = ({xScale, yScale, scaleOffset, innerHeight}) => {
                         >
                         {t}
                         </text>
-                    </>
+                    </React.Fragment>
                     );
                 })}
             </g>

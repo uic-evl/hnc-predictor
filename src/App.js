@@ -15,9 +15,9 @@ function App() {
   const perfScoreRef = React.createRef();
   const packRef = React.createRef();
   const siteRef = React.createRef();
-  const tlcRef = React.createRef();
-  const tRef = React.createRef();
-  const nRef = React.createRef();
+  let tlcRef = "T4";
+  let tRef = "T4";
+  let nRef = "N2";
   const hpvRef = React.createRef();
 
   const defaultVal = {
@@ -33,13 +33,35 @@ function App() {
 
   const [prediction, setPrediction] = useState(null)
 
+  const onTLChange = (event) =>{
+    tlcRef = event.target.value;
+  }
+
+  const onTChange = (event) =>{
+    tRef = event.target.value;
+  }
+  const onNChange = (event) =>{
+    nRef = event.target.value;
+  }
+
 
   const handleButtonClick = () =>{
     console.log("i am clicked")
-    console.log(tlcRef.current.value)
+    let val = {
+      "AGE": ageRef.current.value,
+      "Performance_score": perfScoreRef.current.value,
+      "pack_years": packRef.current.value,
+      "site" : siteRef.current.value,
+      "T_stage_LC" : tlcRef,
+      "T_stage" : tRef,
+      "N_stage" : nRef,
+      "HPV.P16.status" : hpvRef.current.value
+    }
+    // console.log(defaultVal)
+    // console.log(val)
     post(
       'http://127.0.0.1:8080/backend',
-      {data:defaultVal}
+      {data:val}
     ).then((response) => {
       // console.log("connection created")
       console.log(response.data)
@@ -58,9 +80,9 @@ function App() {
           perfScoreRef = {perfScoreRef}
           packRef = {packRef}
           siteRef = {siteRef}
-          tlcRef = {tlcRef}
-          tRef = {tRef}
-          nRef = {nRef}
+          tlcRef = {onTLChange}
+          tRef = {onTChange}
+          nRef = {onNChange}
           hpvRef = {hpvRef}
         />
         {/* <LineView 
@@ -82,9 +104,9 @@ function App() {
         perfScoreRef = {perfScoreRef}
         packRef = {packRef}
         siteRef = {siteRef}
-        tlcRef = {tlcRef}
-        tRef = {tRef}
-        nRef = {nRef}
+        tlcRef = {onTLChange}
+        tRef = {onTChange}
+        nRef = {onNChange}
         hpvRef = {hpvRef}
       />
       <LineView 

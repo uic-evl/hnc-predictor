@@ -82,6 +82,7 @@ export const LineView = ({data}) => {
 
             {data.map((pred, i) => (
                 <LinePlot 
+                    key={i}
                     data={pred}
                     xScale = {xScale}
                     yScale = {yScale}
