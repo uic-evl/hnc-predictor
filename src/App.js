@@ -1,4 +1,6 @@
+import React from 'react';
 import './App.css';
+
 
 import {Container, Row} from 'react-bootstrap'
 
@@ -9,6 +11,15 @@ import {FormView} from './components/FormView'
 import {LineView} from './components/LineView/LineView'
 
 function App() {
+  const ageRef = React.createRef();
+  const perfScoreRef = React.createRef();
+  const packRef = React.createRef();
+  const siteRef = React.createRef();
+  const tlcRef = React.createRef();
+  const tRef = React.createRef();
+  const nRef = React.createRef();
+  const hpvRef = React.createRef();
+
   const defaultVal = {
     "AGE": ">75",
     "Performance_score": "0",
@@ -25,6 +36,7 @@ function App() {
 
   const handleButtonClick = () =>{
     console.log("i am clicked")
+    console.log(tlcRef.current.value)
     post(
       'http://127.0.0.1:8080/backend',
       {data:defaultVal}
@@ -40,7 +52,17 @@ function App() {
     return (
       <Container fluid>
       <Row>
-        <FormView onButtonClick={handleButtonClick}/>
+        <FormView 
+          onButtonClick={handleButtonClick}
+          ageRef={ageRef}
+          perfScoreRef = {perfScoreRef}
+          packRef = {packRef}
+          siteRef = {siteRef}
+          tlcRef = {tlcRef}
+          tRef = {tRef}
+          nRef = {nRef}
+          hpvRef = {hpvRef}
+        />
         {/* <LineView 
           data={prediction}
         /> */}
@@ -54,7 +76,17 @@ function App() {
   return (
     <Container fluid>
     <Row>
-      <FormView onButtonClick={handleButtonClick}/>
+      <FormView
+        onButtonClick={handleButtonClick}
+        ageRef={ageRef}
+        perfScoreRef = {perfScoreRef}
+        packRef = {packRef}
+        siteRef = {siteRef}
+        tlcRef = {tlcRef}
+        tRef = {tRef}
+        nRef = {nRef}
+        hpvRef = {hpvRef}
+      />
       <LineView 
         data={prediction}
       />
