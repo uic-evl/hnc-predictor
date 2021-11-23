@@ -47,8 +47,11 @@ export   const FormView = ({
       <Form.Group controlId="formGridState">
         <Form.Label>Tumor Site</Form.Label>
         <Form.Select defaultValue="Hypopharynx" ref={siteRef}>
+          <option value='OPC'> OPC </option>
           <option value='Hypopharynx'> Hypopharynx </option>
-          {/* <option></option> */}
+          <option value='Oral Cavity'> Oral Cavity </option>
+          <option value='Larynx'> Larynx </option>
+          <option value='Nasopharynx'> Nasopharynx </option>
         </Form.Select>
       </Form.Group>
 
@@ -149,6 +152,16 @@ export   const FormView = ({
         <br/>
         <Form.Check
           inline
+          label="N0"
+          name="NGroup"
+          type="radio"
+          id={`inline-radio-1`}
+          value="N0"
+          onChange={nRef}
+        />
+
+        <Form.Check
+          inline
           label="N1"
           name="NGroup"
           type="radio"
@@ -158,11 +171,21 @@ export   const FormView = ({
         />
         <Form.Check
           inline
-          label="N2"
+          label="N2a-b"
           name="NGroup"
           type="radio"
           id={`inline-radio-2`}
-          value="N2"
+          value="N2a-b"
+          onChange={nRef}
+          defaultChecked
+        />
+        <Form.Check
+          inline
+          label="N2c"
+          name="NGroup"
+          type="radio"
+          id={`inline-radio-2`}
+          value="N2c"
           onChange={nRef}
           defaultChecked
         />
