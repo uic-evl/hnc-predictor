@@ -2,6 +2,8 @@ import { Col } from "react-bootstrap"
 
 import { scaleLinear, scaleOrdinal } from "d3"
 
+import * as d3 from 'd3'
+
 import { AxisBottom } from "./AxisBottom"
 import { AxisLeft } from "./AxisLeft"
 import { LinePlot } from "./LinePlot"
@@ -17,6 +19,15 @@ const yAxisLabelOffset = 40
 
 const xAxisLabel = 'Time (years)'
 const yAxisLabel = 'Overall Survival'
+
+const legend = ['Overall Survival', "Local Control"]
+const clnames = ['overall', 'local']
+
+const textPaddingX = 15
+const textPaddingY = 10
+
+const legendSize = 10
+const legendOffset = 20
 
 export const LineView = ({data}) => {
     const innerHeight = height - margin.top - margin.bottom
@@ -45,8 +56,19 @@ export const LineView = ({data}) => {
 
 
     const color = scaleOrdinal()
-        .domain([0,data.length])
+        .domain([0, 1])
         .range(["red", "black"])
+
+    const onHover = (val) => {
+        console.log(legend[val])
+        d3.selectAll('#line-plot').style('opacity', 0.2)
+        d3.select(`.${val}`).style('opacity', 1)
+        
+    }
+
+    const hoverOut = () => {
+        d3.selectAll('#line-plot').style('opacity', 1)
+    }
 
     return(
     <Col className="linePlot" md="8">
@@ -80,17 +102,45 @@ export const LineView = ({data}) => {
                 transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2} )rotate(-90)`}
             >{yAxisLabel}</text>
 
-            {data.map((pred, i) => (
-                <LinePlot 
-                    key={i}
-                    data={pred}
-                    xScale = {xScale}
-                    yScale = {yScale}
-                    color={color(i)}
-                    time={time}
-                /> 
+            {data.map((pred, i) =>{ 
+                // console.log(i)
+                // console.log(color(i))
+                return(
+                <>
+                    <LinePlot 
+                        key={i}
+                        classVal={clnames[i]}
+                        data={pred}
+                        xScale = {xScale}
+                        yScale = {yScale}
+                        color={color(i)}
+                        time={time}
+                    />
 
-            ))}
+                    <g
+                        className='legend'
+                        onMouseEnter={() => onHover(clnames[i])}
+                        onMouseOut = {() => hoverOut()}
+                    >
+                        <rect
+                            x = {(innerWidth - margin.right - margin.left)}
+                            y = {legendOffset + legendOffset * i}
+                            width = {legendSize}
+                            height = {legendSize}
+                            fill = {color(i)}
+                        />
+                        <text
+                            x = {textPaddingX + (innerWidth - margin.right - margin.left)}
+                            y = {textPaddingY + (legendOffset + legendOffset * i)}
+                        >
+                            {`${legend[i]}`}
+                        </text>
+
+                    </g>
+
+                </>
+
+            )})}
             </g>
         </svg>
     </Col>

@@ -1,6 +1,7 @@
 import { curveNatural, line } from "d3";
 
 export const LinePlot = ({
+    classVal,
     data, 
     xScale, 
     yScale, 
@@ -12,6 +13,8 @@ export const LinePlot = ({
         return(
         <g className='mark'> 
             <path 
+                className = {classVal}
+                id = "line-plot"
                 fill="none"
                 stroke={color}
                 d={line()
