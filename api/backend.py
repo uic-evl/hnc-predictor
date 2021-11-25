@@ -3,12 +3,15 @@ from flask_cors import CORS, cross_origin
 # import pandas as pd
 import numpy as np
 # import rpy2
+import rpy2
 import rpy2.robjects as robjects
+from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
+
 # from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
 # from rpy2.robjects import pandas2ri
 
-import os
-os.environ['R_HOME'] = 'C:/Users/nafiu/anaconda3/envs/lancet/Scripts/R.exe'
+# import os
+# os.environ['R_HOME'] = 'C:/Users/nafiu/anaconda3/envs/lancet/Scripts/R.exe'
 
 
 app = Flask(__name__)
