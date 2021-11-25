@@ -29,7 +29,7 @@ Install R globally
 4. Insall Numpy - 
 ### `conda install -c anaconda numpy`
 5. Install rpy2 -
-### `conda install -c r rpy2
+### `conda install -c r rpy2`
 6. Install r-prodlim -
 ### `conda install -c conda-forge r-prodlim`
 7. Install r-pec -
