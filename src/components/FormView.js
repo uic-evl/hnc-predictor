@@ -1,4 +1,5 @@
 import { Form, Col, Button } from "react-bootstrap"
+import './FormView.css'
 
 export   const FormView = ({
   onButtonClick, 
@@ -10,10 +11,11 @@ export   const FormView = ({
   tRef, 
   nRef, 
   hpvRef}) =>(
-    <Col className="form" md="4">
-      <h3>Input</h3>
+    <Col className='d-flex justify-content-start'  md="4" >
+      <Form> 
+      <h2>Input</h2>
 
-      <h4>Patient Specifics</h4>
+      <h5>Patient Specifics</h5>
 
       <Form.Group controlId="formGridState">
         <Form.Label>Age</Form.Label>
@@ -22,7 +24,6 @@ export   const FormView = ({
           <option value='>75'> &#62; 75</option>
         </Form.Select>
       </Form.Group>
-      <br/>
 
       <Form.Group controlId="formGridState">
         <Form.Label>Performance Score</Form.Label>
@@ -31,7 +32,6 @@ export   const FormView = ({
           <option value='1'>1</option>
         </Form.Select>
       </Form.Group>
-      <br/>
 
       <Form.Group controlId="formGridState">
         <Form.Label>Pack Years</Form.Label>
@@ -40,9 +40,8 @@ export   const FormView = ({
           <option  value='>50'> &#62; 50 </option>
         </Form.Select>
       </Form.Group>
-      <br/>
 
-      <h4>Tumor Specifics</h4>
+      <h5>Tumor Specifics</h5>
 
       <Form.Group controlId="formGridState">
         <Form.Label>Tumor Site</Form.Label>
@@ -97,10 +96,6 @@ export   const FormView = ({
           defaultChecked
         />
       </Form.Group>
-      <br/>
-
-
-
 
       <Form.Group>
         <Form.Label>T Stage</Form.Label>
@@ -144,7 +139,6 @@ export   const FormView = ({
           defaultChecked
         />
       </Form.Group>
-      <br/>
 
 
       <Form.Group>
@@ -199,7 +193,6 @@ export   const FormView = ({
           onChange={nRef}
         />
       </Form.Group>
-      <br/>
 
       <Form.Group controlId="formGridState">
         <Form.Label>HPV Status</Form.Label>
@@ -209,13 +202,14 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
       <br/>
-
-
+      
       <Button variant="primary"
         onClick={onButtonClick}
       >
         Submit
       </Button>
+
+      </Form>
 
     </Col>
   )

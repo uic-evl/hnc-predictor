@@ -14,3 +14,7 @@
   font-size: 1.2em;
   fill: #8e8883;
 }
+
+body{
+  height: 100%;
+}
