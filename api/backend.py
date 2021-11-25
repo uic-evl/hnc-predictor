@@ -7,6 +7,9 @@ import rpy2.robjects as robjects
 # from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
 # from rpy2.robjects import pandas2ri
 
+import os
+os.environ['R_HOME'] = 'C:/Users/nafiu/anaconda3/envs/lancet/Scripts/R.exe'
+
 
 app = Flask(__name__)
 

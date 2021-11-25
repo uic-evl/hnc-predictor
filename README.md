@@ -17,6 +17,7 @@ Activate the environment:
 ### `conda activate lancet `
 
 Install necessary packages : c
+Install R globally
 
 1. Install Flask - 
 ### `conda install -c anaconda flask`
