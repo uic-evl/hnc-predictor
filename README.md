@@ -9,6 +9,7 @@ then run
 
 
 # Python Backend Guide
+Python version <3.8 for rpy2
 
 Create an ancaonda environment : 
 ### `conda create -n lancet `
@@ -28,7 +29,7 @@ Install R globally
 4. Insall Numpy - 
 ### `conda install -c anaconda numpy`
 5. Install rpy2 -
-### `conda install -c conda-forge rpy2`
+### `conda install -c r rpy2
 6. Install r-prodlim -
 ### `conda install -c conda-forge r-prodlim`
 7. Install r-pec -
