@@ -20,7 +20,9 @@ export   const FormView = ({
       <Form.Group controlId="formGridState">
         <Form.Label>Age</Form.Label>
         <Form.Select defaultValue=">75" ref={ageRef}>
-          <option value='<75'> &#60; 75 </option>
+          <option value='<55'> &#60; 55 </option>
+          <option value='55-65'> 55 - 65 </option>
+          <option value='65-75'> 65 - 75 </option>
           <option value='>75'> &#62; 75</option>
         </Form.Select>
       </Form.Group>
@@ -30,13 +32,16 @@ export   const FormView = ({
         <Form.Select defaultValue="0" ref={perfScoreRef}>
           <option value='0'>0</option>
           <option value='1'>1</option>
+          <option value='>2'>&#62; 2</option>
         </Form.Select>
       </Form.Group>
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Pack Years</Form.Label>
         <Form.Select defaultValue=">50" ref={packRef}>
-          <option value='<50'> &#60; 50 </option>
+          <option value='<5'> &#60; 5 </option>
+          <option value='5-25'> 5 - 25</option>
+          <option value='25-50'> 25 - 50 </option>
           <option  value='>50'> &#62; 50 </option>
         </Form.Select>
       </Form.Group>
