@@ -13,9 +13,9 @@ export   const FormView = ({
   hpvRef}) =>(
     <Col className='d-flex justify-content-start'  md="4" >
       <Form> 
-      <h2>Input</h2>
+      <h4>Input</h4>
 
-      <h5>Patient Specifics</h5>
+      <h6>Patient Specifics</h6>
 
       <Form.Group controlId="formGridState">
         <Form.Label>Age</Form.Label>
@@ -25,7 +25,7 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
 
-      <Form.Group controlId="formGridState">
+      <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Performance Score</Form.Label>
         <Form.Select defaultValue="0" ref={perfScoreRef}>
           <option value='0'>0</option>
@@ -33,7 +33,7 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
 
-      <Form.Group controlId="formGridState">
+      <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Pack Years</Form.Label>
         <Form.Select defaultValue=">50" ref={packRef}>
           <option value='<50'> &#60; 50 </option>
@@ -41,9 +41,9 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
 
-      <h5>Tumor Specifics</h5>
+      <h6 id='space'>Tumor Specifics</h6>
 
-      <Form.Group controlId="formGridState">
+      <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Tumor Site</Form.Label>
         <Form.Select defaultValue="Hypopharynx" ref={siteRef}>
           <option value='OPC'> OPC </option>
@@ -54,7 +54,7 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group id='space'>
         <Form.Label>T Stage LC</Form.Label>
         <br/>
         <Form.Check
@@ -97,7 +97,7 @@ export   const FormView = ({
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group id='space'>
         <Form.Label>T Stage</Form.Label>
         <br/>
         <Form.Check
@@ -141,7 +141,7 @@ export   const FormView = ({
       </Form.Group>
 
 
-      <Form.Group>
+      <Form.Group id='space'>
         <Form.Label>N Stage</Form.Label>
         <br/>
         <Form.Check
@@ -194,7 +194,7 @@ export   const FormView = ({
         />
       </Form.Group>
 
-      <Form.Group controlId="formGridState">
+      <Form.Group controlId="formGridState" id='space'>
         <Form.Label>HPV Status</Form.Label>
         <Form.Select defaultValue="Positive" ref={hpvRef}>
           <option value='Positive'> Positive </option>
