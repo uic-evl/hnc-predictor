@@ -1,0 +1,5 @@
+1. Table under the graph look at the mock up
+2. follow the mock up to modify the interface
+3. add AJCC stage
+4. tooltip 
+5. Y axis - predicted risk

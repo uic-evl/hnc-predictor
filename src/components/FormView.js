@@ -7,7 +7,7 @@ export   const FormView = ({
   perfScoreRef, 
   packRef, 
   siteRef, 
-  tlcRef, 
+  // tlcRef, 
   tRef, 
   nRef, 
   hpvRef}) =>(
@@ -59,7 +59,7 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
 
-      <Form.Group id='space'>
+      {/* <Form.Group id='space'>
         <Form.Label>T Stage LC</Form.Label>
         <br/>
         <Form.Check
@@ -100,7 +100,7 @@ export   const FormView = ({
           onChange={tlcRef}
           defaultChecked
         />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group id='space'>
         <Form.Label>T Stage</Form.Label>

@@ -15,7 +15,7 @@ function App() {
   const perfScoreRef = React.createRef();
   const packRef = React.createRef();
   const siteRef = React.createRef();
-  let tlcRef = "T4";
+  // let tlcRef = "T4";
   let tRef = "T4";
   let nRef = "N2";
   const hpvRef = React.createRef();
@@ -33,9 +33,9 @@ function App() {
 
   const [prediction, setPrediction] = useState(null)
 
-  const onTLChange = (event) =>{
-    tlcRef = event.target.value;
-  }
+  // const onTLChange = (event) =>{
+  //   tlcRef = event.target.value;
+  // }
 
   const onTChange = (event) =>{
     tRef = event.target.value;
@@ -52,7 +52,7 @@ function App() {
       "Performance_score": perfScoreRef.current.value,
       "pack_years": packRef.current.value,
       "site" : siteRef.current.value,
-      "T_stage_LC" : tlcRef,
+      // "T_stage_LC" : tlcRef,
       "T_stage" : tRef,
       "N_stage" : nRef,
       "HPV.P16.status" : hpvRef.current.value
@@ -80,7 +80,7 @@ function App() {
           perfScoreRef = {perfScoreRef}
           packRef = {packRef}
           siteRef = {siteRef}
-          tlcRef = {onTLChange}
+          // tlcRef = {onTLChange}
           tRef = {onTChange}
           nRef = {onNChange}
           hpvRef = {hpvRef}
@@ -104,7 +104,7 @@ function App() {
         perfScoreRef = {perfScoreRef}
         packRef = {packRef}
         siteRef = {siteRef}
-        tlcRef = {onTLChange}
+        // tlcRef = {onTLChange}
         tRef = {onTChange}
         nRef = {onNChange}
         hpvRef = {hpvRef}
