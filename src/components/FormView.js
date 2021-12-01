@@ -11,7 +11,7 @@ export   const FormView = ({
   tRef, 
   nRef, 
   hpvRef}) =>(
-    <Col className='d-flex justify-content-start'  md="4" >
+    <Col className='d-flex justify-content-start'  md="2" >
       <Form> 
       <h4>Input</h4>
 

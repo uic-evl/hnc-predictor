@@ -9,6 +9,7 @@ import {useState } from 'react';
 
 import {FormView} from './components/FormView'
 import {LineView} from './components/LineView/LineView'
+import { Stratification } from './components/Stratification/Stratification';
 
 function App() {
   const ageRef = React.createRef();
@@ -85,9 +86,6 @@ function App() {
           nRef = {onNChange}
           hpvRef = {hpvRef}
         />
-        {/* <LineView 
-          data={prediction}
-        /> */}
       </Row>
     </Container>
     );
@@ -112,6 +110,7 @@ function App() {
       <LineView 
         data={prediction}
       />
+      {/* <Stratification/> */}
     </Row>
   </Container>
   );

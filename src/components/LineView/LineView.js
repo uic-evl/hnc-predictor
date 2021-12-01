@@ -18,7 +18,7 @@ const xAxisLabelOffset = 50
 const yAxisLabelOffset = 40
 
 const xAxisLabel = 'Time (years)'
-const yAxisLabel = 'Overall Survival'
+const yAxisLabel = 'Predicted Risk'
 
 const legend = ['Overall Survival', "Local Control"]
 const clnames = ['overall', 'local']
@@ -71,7 +71,7 @@ export const LineView = ({data}) => {
     }
 
     return(
-    <Col className="linePlot" md="8">
+    <Col className="linePlot" md="5">
         <svg width={width} height={height}>
             <g transform={`translate(${margin.left}, ${margin.top})`}>
             
