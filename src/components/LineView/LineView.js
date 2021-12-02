@@ -20,8 +20,8 @@ const yAxisLabelOffset = 40
 const xAxisLabel = 'Time (years)'
 const yAxisLabel = 'Predicted Risk'
 
-const legend = ['Overall Survival', "Local Control"]
-const clnames = ['overall', 'local']
+const legend = ['Overall Survival', "Local Control", "Regional Control"]
+const clnames = ['overall', 'local', 'region']
 
 const textPaddingX = 15
 const textPaddingY = 10
@@ -57,7 +57,7 @@ export const LineView = ({data}) => {
 
     const color = scaleOrdinal()
         .domain([0, 1])
-        .range(["red", "black"])
+        .range(["red", "black", 'green'])
 
     const onHover = (val) => {
         console.log(legend[val])
@@ -72,6 +72,7 @@ export const LineView = ({data}) => {
 
     return(
     <Col className="linePlot" md="5">
+        <h4 className='d-flex justify-content-center'>Output</h4>
         <svg width={width} height={height}>
             <g transform={`translate(${margin.left}, ${margin.top})`}>
             

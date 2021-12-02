@@ -35,14 +35,20 @@ def backend():
             dataVal = stage_maker(dataVal)
 
             #load(file="C:/Users/lvvan/Google Drive/MDACC/R_dir/scripts_temp/Model_sel_cat_Juli2021.R");
-            load(file="Model_sel_cat_Juli2021.R");
+            load(file="Model_OS_cat_nov2021_FINAL.R");
             Overall_survival=predictSurvProb(Model_sel, newdata=dataVal, times=time_years)
 
             #load(file="C:/Users/lvvan/Google Drive/MDACC/R_dir/scripts_temp/Model_sel_LC3_old_catt_Juli2021.R")
-            load(file="Model_sel_LC3_old_cat_pool_Juli2021.R")
+            load(file="Model_LC_cat_nov2021_FINAL.R")
+            if (dataVal$T_stage %in% c("T0","T1")){dataVal$T_stage_LC="T0-1"}else{dataVal$T_stage_LC=dataVal$T_stage}
             Local_control=predictSurvProb(Model_sel, newdata=dataVal, times=time_years)
 
-            result <- list(Overall_survival = Overall_survival, Local_control = Local_control)
+
+            load(file="Model_RC_nov2021_FINAL.R");
+            Regional_control = predictSurvProb(Model_sel, newdata=dataVal, times=time_years)
+
+
+            result <- list(Overall_survival = Overall_survival, Local_control = Local_control, Regional_control = Regional_control)
             
             result
         
