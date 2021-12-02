@@ -40,11 +40,11 @@ function App() {
 
   const onTChange = (event) =>{
     tRef = event.target.value;
-    console.log(tRef)
+    // console.log(tRef)
   }
   const onNChange = (event) =>{
     nRef = event.target.value;
-    console.log(nRef)
+    // console.log(nRef)
   }
 
 
@@ -61,7 +61,7 @@ function App() {
       "HPV.P16.status" : hpvRef.current.value
     }
     // console.log(defaultVal)
-    console.log(val)
+    // console.log(val)
     post(
       'http://127.0.0.1:8080/backend',
       {data:val}
