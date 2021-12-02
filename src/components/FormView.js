@@ -164,7 +164,7 @@ export   const FormView = ({
           label="N1"
           name="NGroup"
           type="radio"
-          id={`inline-radio-1`}
+          id={`inline-radio-2`}
           value="N1"
           onChange={nRef}
         />
@@ -173,7 +173,7 @@ export   const FormView = ({
           label="N2a-b"
           name="NGroup"
           type="radio"
-          id={`inline-radio-2`}
+          id={`inline-radio-3`}
           value="N2a-b"
           onChange={nRef}
           defaultChecked
@@ -183,7 +183,7 @@ export   const FormView = ({
           label="N2c"
           name="NGroup"
           type="radio"
-          id={`inline-radio-2`}
+          id={`inline-radio-4`}
           value="N2c"
           onChange={nRef}
           defaultChecked
@@ -193,7 +193,7 @@ export   const FormView = ({
           label="N3"
           name='NGroup'
           type="radio"
-          id={`inline-radio-3`}
+          id={`inline-radio-5`}
           value="N3"
           onChange={nRef}
         />

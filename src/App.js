@@ -18,7 +18,7 @@ function App() {
   const siteRef = React.createRef();
   // let tlcRef = "T4";
   let tRef = "T4";
-  let nRef = "N2";
+  let nRef = "N2c";
   const hpvRef = React.createRef();
 
   const defaultVal = {
@@ -40,9 +40,11 @@ function App() {
 
   const onTChange = (event) =>{
     tRef = event.target.value;
+    console.log(tRef)
   }
   const onNChange = (event) =>{
     nRef = event.target.value;
+    console.log(nRef)
   }
 
 
@@ -59,7 +61,7 @@ function App() {
       "HPV.P16.status" : hpvRef.current.value
     }
     // console.log(defaultVal)
-    // console.log(val)
+    console.log(val)
     post(
       'http://127.0.0.1:8080/backend',
       {data:val}
