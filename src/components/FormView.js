@@ -10,7 +10,10 @@ export   const FormView = ({
   // tlcRef, 
   tRef, 
   nRef, 
-  hpvRef}) =>(
+  hpvRef,
+  stage,
+  stage7
+}) =>(
     <Col className='d-flex justify-content-start'  md="2" >
       <Form> 
       <h4>Input</h4>
@@ -207,13 +210,19 @@ export   const FormView = ({
         </Form.Select>
       </Form.Group>
       <br/>
+      {
+        stage !== null &&
+        <div>
+          AJCC<sup>8th</sup> stage:  <b>{stage}</b>
+        </div>
+      }
+      <br/>
       
       <Button variant="primary"
         onClick={onButtonClick}
       >
         Submit
       </Button>
-
       </Form>
 
     </Col>

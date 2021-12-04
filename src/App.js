@@ -11,6 +11,9 @@ import {FormView} from './components/FormView'
 import {LineView} from './components/LineView/LineView'
 import { Stratification } from './components/Stratification/Stratification';
 
+let stage_new = null
+let stage_new_7th  = null
+
 function App() {
   const ageRef = React.createRef();
   const perfScoreRef = React.createRef();
@@ -67,8 +70,15 @@ function App() {
       {data:val}
     ).then((response) => {
       // console.log("connection created")
-      console.log(response.data)
-        setPrediction(response.data)
+      console.log(response.data[0])
+
+      stage_new = response.data[0]
+      stage_new_7th = response.data[1]
+
+      let predData = [response.data[2], response.data[3], response.data[4]]
+
+      setPrediction(predData)
+
     }).catch((error) => {
       console.log(error)
     });
@@ -87,6 +97,8 @@ function App() {
           tRef = {onTChange}
           nRef = {onNChange}
           hpvRef = {hpvRef}
+          stage = {stage_new}
+          stage7 = {stage_new_7th}
         />
       </Row>
     </Container>
@@ -108,6 +120,8 @@ function App() {
         tRef = {onTChange}
         nRef = {onNChange}
         hpvRef = {hpvRef}
+        stage = {stage_new}
+        stage7 = {stage_new_7th}
       />
       <LineView 
         data={prediction}

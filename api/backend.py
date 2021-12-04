@@ -47,8 +47,9 @@ def backend():
             load(file="Model_RC_nov2021_FINAL.R");
             Regional_control = predictSurvProb(Model_sel, newdata=dataVal, times=time_years)
 
-
-            result <- list(Overall_survival = Overall_survival, Local_control = Local_control, Regional_control = Regional_control)
+            stage = as.list(levels(dataVal$stage_new))
+            stage_new = as.list(levels(dataVal$stage_new_7th))
+            result <- list(Stage_new = stage[dataVal$stage_new], Stage_new_7th = stage[dataVal$stage_new_7th], Overall_survival = Overall_survival, Local_control = Local_control, Regional_control = Regional_control)
             
             result
         
