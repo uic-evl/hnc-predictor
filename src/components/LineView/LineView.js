@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 
 import { scaleLinear, scaleOrdinal } from "d3"
 
@@ -7,6 +7,7 @@ import * as d3 from 'd3'
 import { AxisBottom } from "./AxisBottom"
 import { AxisLeft } from "./AxisLeft"
 import { LinePlot } from "./LinePlot"
+import { RiskTable } from "./RiskTable"
 
 
 const width = 800
@@ -29,7 +30,10 @@ const textPaddingY = 10
 const legendSize = 10
 const legendOffset = 20
 
+const years = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 export const LineView = ({data}) => {
+    
     const innerHeight = height - margin.top - margin.bottom
     const innerWidth = width - margin.left - margin.right
 
@@ -42,6 +46,9 @@ export const LineView = ({data}) => {
     }
 
     const time = Array.from(createArrayRange(0,10,0.1))
+
+    console.log(years)
+    console.log(time)
 
     // console.log(time)
     const xScale = scaleLinear()
@@ -72,78 +79,93 @@ export const LineView = ({data}) => {
 
     return(
     <Col className="linePlot" md="5">
-        <h4 className='d-flex justify-content-center'>Output</h4>
-        <svg width={width} height={height}>
-            <g transform={`translate(${margin.left}, ${margin.top})`}>
-            
-            <AxisBottom 
-                xScale ={xScale}
-                yScale = {yScale}
-                scaleOffset = {5}
-                innerHeight={innerHeight}
-            />
-
-            <text
-                className='axis-label'
-                x={innerWidth / 2}
-                y={innerHeight + xAxisLabelOffset}
-                textAnchor='middle'
-            >{xAxisLabel}</text>
-
-            <AxisLeft 
-                xScale={xScale}
-                yScale = {yScale}
-                // innerWidth={innerWidth}
-                scaleOffset = {5}
-            />
-            
-            <text
-                className='axis-label'       
-                textAnchor='middle'
-                transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2} )rotate(-90)`}
-            >{yAxisLabel}</text>
-
-            {data.map((pred, i) =>{ 
-                // console.log(i)
-                // console.log(color(i))
-                return(
-                <>
-                    <LinePlot 
-                        key={i}
-                        classVal={clnames[i]}
-                        data={pred}
-                        xScale = {xScale}
+        <Row>
+            <Col md='12'>
+                <h4 className='d-flex justify-content-center'>Output</h4>
+                <svg width={width} height={height}>
+                    <g transform={`translate(${margin.left}, ${margin.top})`}>
+                    
+                    <AxisBottom 
+                        xScale ={xScale}
                         yScale = {yScale}
-                        color={color(i)}
-                        time={time}
+                        scaleOffset = {5}
+                        innerHeight={innerHeight}
                     />
 
-                    <g
-                        className='legend'
-                        onMouseEnter={() => onHover(clnames[i])}
-                        onMouseOut = {() => hoverOut()}
-                    >
-                        <rect
-                            x = {(innerWidth - margin.right - margin.left)}
-                            y = {legendOffset + legendOffset * i}
-                            width = {legendSize}
-                            height = {legendSize}
-                            fill = {color(i)}
-                        />
-                        <text
-                            x = {textPaddingX + (innerWidth - margin.right - margin.left)}
-                            y = {textPaddingY + (legendOffset + legendOffset * i)}
-                        >
-                            {`${legend[i]}`}
-                        </text>
+                    <text
+                        className='axis-label'
+                        x={innerWidth / 2}
+                        y={innerHeight + xAxisLabelOffset}
+                        textAnchor='middle'
+                    >{xAxisLabel}</text>
 
+                    <AxisLeft 
+                        xScale={xScale}
+                        yScale = {yScale}
+                        // innerWidth={innerWidth}
+                        scaleOffset = {5}
+                    />
+                    
+                    <text
+                        className='axis-label'       
+                        textAnchor='middle'
+                        transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2} )rotate(-90)`}
+                    >{yAxisLabel}</text>
+
+                    {data.map((pred, i) =>{ 
+                        // console.log(i)
+                        // console.log(color(i))
+                        return(
+                        <>
+                            <LinePlot 
+                                key={i}
+                                classVal={clnames[i]}
+                                data={pred}
+                                xScale = {xScale}
+                                yScale = {yScale}
+                                color={color(i)}
+                                time={time}
+                            />
+
+                            <g
+                                className='legend'
+                                onMouseEnter={() => onHover(clnames[i])}
+                                onMouseOut = {() => hoverOut()}
+                            >
+                                <rect
+                                    x = {(innerWidth - margin.right - margin.left)}
+                                    y = {legendOffset + legendOffset * i}
+                                    width = {legendSize}
+                                    height = {legendSize}
+                                    fill = {color(i)}
+                                />
+                                <text
+                                    x = {textPaddingX + (innerWidth - margin.right - margin.left)}
+                                    y = {textPaddingY + (legendOffset + legendOffset * i)}
+                                >
+                                    {`${legend[i]}`}
+                                </text>
+
+                            </g>
+
+                        </>
+
+                    )})}
                     </g>
-
-                </>
-
-            )})}
-            </g>
-        </svg>
+                </svg>
+            </Col>
+        
+        </Row>
+        <Row>
+            <Col md='12'>
+                <RiskTable
+                    head={years}
+                    topic ={legend}
+                    time={time}
+                    data={data}
+                />
+            </Col>            
+        </Row>
     </Col>
 )
 }
