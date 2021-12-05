@@ -32,20 +32,11 @@ const legendOffset = 20
 
 const years = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-export const LineView = ({data}) => {
+export const LineView = ({data, time}) => {
     
     const innerHeight = height - margin.top - margin.bottom
     const innerWidth = width - margin.left - margin.right
 
-    const createArrayRange = (start, end, step) => {
-        let result = []
-        for (let i = start; i < end; i = i + step) {
-            result.push(+i.toFixed(1));
-        }
-        return result;
-    }
-
-    const time = Array.from(createArrayRange(0,10,0.1))
 
     console.log(years)
     console.log(time)

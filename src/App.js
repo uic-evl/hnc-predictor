@@ -14,6 +14,18 @@ import { Stratification } from './components/Stratification/Stratification';
 let stage_new = null
 let stage_new_7th  = null
 
+const createArrayRange = (start, end, step) => {
+  let result = []
+  for (let i = start; i < end; i = i + step) {
+      result.push(+i.toFixed(1));
+  }
+  return result;
+}
+
+const time = Array.from(createArrayRange(0,10,0.1))
+
+const yearIndex = time.indexOf(2)
+
 function App() {
   const ageRef = React.createRef();
   const perfScoreRef = React.createRef();
@@ -125,8 +137,12 @@ function App() {
       />
       <LineView 
         data={prediction}
+        time={time}
       />
-      <Stratification/>
+      <Stratification
+        yrIndex = {yearIndex}
+        data ={prediction[2][0]}
+      />
     </Row>
   </Container>
   );

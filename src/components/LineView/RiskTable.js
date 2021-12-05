@@ -11,7 +11,7 @@ export const RiskTable = ({
     console.log(data)
     return (
         <Table striped bordered hover>
-            <thead class="t-head">
+            <thead className="t-head">
                 <tr>
                 <th></th>
                 {
