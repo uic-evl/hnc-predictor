@@ -126,7 +126,7 @@ function App() {
       <LineView 
         data={prediction}
       />
-      {/* <Stratification/> */}
+      <Stratification/>
     </Row>
   </Container>
   );
