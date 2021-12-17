@@ -1,20 +1,25 @@
 .ticks line{
-  stroke: #C0C0BB;
+  stroke: black;
   
 }
 .ticks text{
-  fill: #C0C0BB;
+  fill: black;
   text-anchor: middle;
   font-size: 1em;
 }
 .axisLine{
-  stroke: #C0C0BB;
+  stroke: black;
 }
 .axis-label{
   font-size: 1.2em;
-  fill: #8e8883;
+  fill: black;
 }
 
 body{
   height: 100%;
+  background-color: red; /* For browsers that do not support gradients */
+  background: linear-gradient(to left top, green, white) fixed;
+  /* background-image: linear-gradient(white,green);
+  background-size:cover; */
+  
 }

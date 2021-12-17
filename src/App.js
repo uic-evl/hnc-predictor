@@ -120,7 +120,7 @@ function App() {
 
 
   return (
-    <Container fluid>
+    <Container fluid className='contain'>
     <Row>
       <FormView
         onButtonClick={handleButtonClick}

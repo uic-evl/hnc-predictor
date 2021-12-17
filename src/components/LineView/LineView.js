@@ -55,7 +55,7 @@ export const LineView = ({data, time}) => {
 
     const color = scaleOrdinal()
         .domain([0, 1])
-        .range(["red", "black", 'green'])
+        .range(["#984ea3", "#377eb8", '#d95f02'])
 
     const onHover = (val) => {
         console.log(legend[val])
