@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Col, Row, InputGroup, FormControl, Button, Image} from "react-bootstrap"
 import * as d3 from 'd3'
+import './Stratification.css'
 
 let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/placeholder.png'
 let perc = null;
+// let risk = null;
 export const Stratification = ({
     yrIndex,
     data
@@ -28,51 +30,64 @@ export const Stratification = ({
 
         if (mortality < low){
             setRisk('Low')
+            // risk = 'Low'
         }else if(mortality >= low && mortality <= up){
             setRisk('Intermediate')
+            // risk = 'Intermediate'
         }else{
             setRisk('High')
+            // risk = 'High'
         }
+
+        console.log(risk)
+        console.log(mortality, val)
 
     }
 
 
     return (
-        <Col className='strat' md='5'>
+        <Col className='strat' md='4'>
             <Row>
                 <h4 className='d-flex justify-content-center'>Stratification</h4>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
-                    <FormControl
-                    aria-label="lower"
-                    aria-describedby="basic-addon1"
-                    ref={lowRef}
-                    />
-                    <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon2">Upper mortality risk</InputGroup.Text>
-                    <FormControl
-                    aria-label="upper"
-                    aria-describedby="basic-addon2"
-                    ref={upRef}
-                    />
-                    <InputGroup.Text id="basic-addon2">%</InputGroup.Text>
-                </InputGroup>
+                <Row>
+                    <InputGroup className="mb-3" style={{width: '60%', left: '17%'}}>
+                        <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
+                        <FormControl
+                        aria-label="lower"
+                        aria-describedby="basic-addon1"
+                        ref={lowRef}
+                        />
+                        <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
+                    </InputGroup>
+                </Row>
+                
+                <Row>
+                    <InputGroup className="mb-3" style={{width: '60%', left: '17%'}}>
+                        <InputGroup.Text id="basic-addon2">Upper mortality risk</InputGroup.Text>
+                        <FormControl
+                        aria-label="upper"
+                        aria-describedby="basic-addon2"
+                        ref={upRef}
+                        />
+                        <InputGroup.Text id="basic-addon2">%</InputGroup.Text>
+                    </InputGroup>
+                </Row>
+                
                 <Button variant="primary" 
                     onClick={onButtonClick}
+                    style={{width: '15%', marginLeft: '56%'}}
                 >
                     Submit
                 </Button>
             </Row>
-            <Row>
+            <Row className='survivalImage'>
                 <Image src={placeholder} fluid />
             </Row>
             {
                 risk !== null && 
-                <Row>
-                    <p>New Patient has: </p>
-                    <p>{risk} mortality risk ({perc}%)</p>
+                <Row style={{marginLeft: '31%'}}>
+                    <p><b>New Patient has: </b></p>
+                    <p><b>{risk}</b> mortality risk ({perc}%)</p>
                 </Row>
 
             }

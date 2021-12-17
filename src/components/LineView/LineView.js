@@ -10,8 +10,8 @@ import { LinePlot } from "./LinePlot"
 import { RiskTable } from "./RiskTable"
 
 
-const width = 800
-const height = 500
+const width = window.innerWidth / 2
+const height = window.innerHeight / 1.75
 
 const margin = {top:20, right:30, bottom:65, left:90} 
 
@@ -69,7 +69,7 @@ export const LineView = ({data, time}) => {
     }
 
     return(
-    <Col className="linePlot" md="5">
+    <Col className="linePlot" md="6">
         <Row>
             <Col md='12'>
                 <h4 className='d-flex justify-content-center'>Output</h4>
