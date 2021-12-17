@@ -34,3 +34,8 @@ Install R globally
 ### `conda install -c conda-forge r-prodlim`
 7. Install r-pec -
 ### `conda install -c conda-forge r-pec`
+
+
+Navigate to api folder 
+then run 
+### `python backend.py`
