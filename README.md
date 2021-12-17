@@ -1,3 +1,8 @@
+# Prototype Interface
+![Prototype](https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/interface.PNG)
+
+
+
 # Getting Started With The Frontend
 
 In the project folder run 
