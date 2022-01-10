@@ -46,39 +46,42 @@ export const Stratification = ({
 
 
     return (
-        <Col className='strat' md='4'>
+        <Col className='strat' md='4' id="back" style={
+            {marginLeft:"1%", width:"31%"}}>
             <Row>
-                <h4 className='d-flex justify-content-center'>Stratification</h4>
-                <Row>
-                    <InputGroup className="mb-3" style={{width: '60%', left: '17%'}}>
-                        <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
-                        <FormControl
-                        aria-label="lower"
-                        aria-describedby="basic-addon1"
-                        ref={lowRef}
-                        />
-                        <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
-                    </InputGroup>
-                </Row>
-                
-                <Row>
-                    <InputGroup className="mb-3" style={{width: '60%', left: '17%'}}>
-                        <InputGroup.Text id="basic-addon2">Upper mortality risk</InputGroup.Text>
-                        <FormControl
-                        aria-label="upper"
-                        aria-describedby="basic-addon2"
-                        ref={upRef}
-                        />
-                        <InputGroup.Text id="basic-addon2">%</InputGroup.Text>
-                    </InputGroup>
-                </Row>
-                
-                <Button variant="primary" 
-                    onClick={onButtonClick}
-                    style={{width: '15%', marginLeft: '56%'}}
-                >
-                    Submit
-                </Button>
+                {/* <Col md='10' id="back"> */}
+                    <h4 className='d-flex justify-content-center'>Stratification</h4>
+                    <Row>
+                        <InputGroup className="mb-3" style={{width: '65%', left: '17%'}}>
+                            <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
+                            <FormControl
+                            aria-label="lower"
+                            aria-describedby="basic-addon1"
+                            ref={lowRef}
+                            />
+                            <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
+                        </InputGroup>
+                    </Row>
+                    
+                    <Row>
+                        <InputGroup className="mb-3" style={{width: '65%', left: '17%'}}>
+                            <InputGroup.Text id="basic-addon2">Upper mortality risk</InputGroup.Text>
+                            <FormControl
+                            aria-label="upper"
+                            aria-describedby="basic-addon2"
+                            ref={upRef}
+                            />
+                            <InputGroup.Text id="basic-addon2">%</InputGroup.Text>
+                        </InputGroup>
+                    </Row>
+                    
+                    <Button variant="primary" 
+                        onClick={onButtonClick}
+                        style={{width: '15%', marginLeft: '56%'}}
+                    >
+                        Submit
+                    </Button>
+                {/* </Col> */}
             </Row>
             <Row className='survivalImage'>
                 <Image src={placeholder} fluid />

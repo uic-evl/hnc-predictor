@@ -1,5 +1,6 @@
 #space{
     padding-top: 1%;
+    margin-left: 5%;
 }
 
 #indent{
@@ -11,4 +12,8 @@
 
 .radin{
     margin-left: 10%;
+}
+
+#textIndent{
+    margin-left: 5%;
 }

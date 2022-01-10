@@ -69,9 +69,9 @@ export const LineView = ({data, time}) => {
     }
 
     return(
-    <Col className="linePlot" md="6">
+    <Col className="linePlot" md="6" id="back">
         <Row>
-            <Col md='12'>
+            <Col md='12' style={{paddingLeft:'0px'}}>
                 <h4 className='d-flex justify-content-center'>Outcome Prediction</h4>
                 <svg width={width} height={height}>
                     <g transform={`translate(${margin.left}, ${margin.top})`}>
@@ -148,7 +148,7 @@ export const LineView = ({data, time}) => {
         
         </Row>
         <Row>
-            <Col md='12'>
+            <Col md='12' style={{paddingLeft:'0px'}}>
                 <RiskTable
                     head={years}
                     topic ={legend}
