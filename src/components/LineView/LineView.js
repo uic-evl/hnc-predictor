@@ -72,7 +72,7 @@ export const LineView = ({data, time}) => {
     <Col className="linePlot" md="6">
         <Row>
             <Col md='12'>
-                <h4 className='d-flex justify-content-center'>Output</h4>
+                <h4 className='d-flex justify-content-center'>Outcome Prediction</h4>
                 <svg width={width} height={height}>
                     <g transform={`translate(${margin.left}, ${margin.top})`}>
                     

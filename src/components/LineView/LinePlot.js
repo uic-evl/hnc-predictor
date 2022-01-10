@@ -17,6 +17,7 @@ export const LinePlot = ({
                 id = "line-plot"
                 fill="none"
                 stroke={color}
+                strokeWidth={"2px"}
                 d={line()
                     .x((d,i) => {
                         // console.log("line plot d")
