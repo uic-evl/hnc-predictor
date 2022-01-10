@@ -22,7 +22,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState">
         <Form.Label>Age</Form.Label>
-        <Form.Select defaultValue=">75" ref={ageRef}>
+        <Form.Select defaultValue=">75" ref={ageRef} id="indent">
           <option value='<55'> &#60; 55 </option>
           <option value='55-65'> 55 - 65 </option>
           <option value='65-75'> 65 - 75 </option>
@@ -32,7 +32,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Performance Score</Form.Label>
-        <Form.Select defaultValue="0" ref={perfScoreRef}>
+        <Form.Select defaultValue="0" ref={perfScoreRef} id="indent">
           <option value='0'>0</option>
           <option value='1'>1</option>
           <option value='>2'>&#62; 2</option>
@@ -41,7 +41,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Pack Years</Form.Label>
-        <Form.Select defaultValue=">50" ref={packRef}>
+        <Form.Select defaultValue=">50" ref={packRef} id="indent">
           <option value='<5'> &#60; 5 </option>
           <option value='5-25'> 5 - 25</option>
           <option value='25-50'> 25 - 50 </option>
@@ -53,7 +53,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Tumor Site</Form.Label>
-        <Form.Select defaultValue="Hypopharynx" ref={siteRef}>
+        <Form.Select defaultValue="Hypopharynx" ref={siteRef} id="indent">
           <option value='OPC'> OPC </option>
           <option value='Hypopharynx'> Hypopharynx </option>
           <option value='Oral Cavity'> Oral Cavity </option>
@@ -116,6 +116,7 @@ export   const FormView = ({
           id={`inline-radio-1`}
           value="T1"
           onChange={tRef}
+          className="radin"
         />
         <Form.Check
           inline
@@ -144,6 +145,7 @@ export   const FormView = ({
           id={`inline-radio-4`}
           value="T4"
           onChange={tRef}
+          className="radin"
           defaultChecked
         />
       </Form.Group>
@@ -160,6 +162,7 @@ export   const FormView = ({
           id={`inline-radio-1`}
           value="N0"
           onChange={nRef}
+          className="radin"
         />
 
         <Form.Check
@@ -189,6 +192,7 @@ export   const FormView = ({
           id={`inline-radio-4`}
           value="N2c"
           onChange={nRef}
+          className="radin"
           defaultChecked
         />
         <Form.Check
@@ -204,7 +208,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>HPV Status</Form.Label>
-        <Form.Select defaultValue="Positive" ref={hpvRef}>
+        <Form.Select defaultValue="Positive" ref={hpvRef} id="indent">
           <option value='Positive'> Positive </option>
           <option value='Negative'>Negative</option>
         </Form.Select>
