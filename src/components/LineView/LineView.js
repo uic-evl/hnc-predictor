@@ -38,8 +38,8 @@ export const LineView = ({data, time}) => {
     const innerWidth = width - margin.left - margin.right
 
 
-    console.log(years)
-    console.log(time)
+    // console.log(years)
+    // console.log(time)
 
     // console.log(time)
     const xScale = scaleLinear()

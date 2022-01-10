@@ -36,6 +36,9 @@ function App() {
   let nRef = "N2c";
   const hpvRef = React.createRef();
 
+  let lowRef = React.createRef()
+  let upRef = React.createRef()
+
   const defaultVal = {
     "AGE": ">75",
     "Performance_score": "0",
@@ -48,10 +51,55 @@ function App() {
   };
 
   const [prediction, setPrediction] = useState(null)
+  const [risk, setRisk] = useState(null);
+  const [perc, setPerc] = useState(null)
 
   // const onTLChange = (event) =>{
   //   tlcRef = event.target.value;
   // }
+
+  const riskCalculation = () => {
+    let low = lowRef.current.value;
+    console.log(low)
+
+    let up = upRef.current.value;
+    console.log(up)
+
+    console.log(prediction)
+    let overallSurv = prediction[0][0]
+
+    let twoYear = overallSurv[yearIndex] * 100
+    // twoYear = twoYear.toFixed(2);
+
+    let mortality = 100 - twoYear;
+    
+
+    // let low = lowRef.current.value;
+    // console.log(low)
+
+    // let up = upRef.current.value;
+    // console.log(up)
+
+    if (mortality < low){
+        setRisk('Low')
+        // risk = 'Low'
+    }else if(mortality >= low && mortality <= up){
+        setRisk('Intermediate')
+        // risk = 'Intermediate'
+    }else{
+        setRisk('High')
+        // risk = 'High'
+    }
+
+    setPerc(mortality.toFixed(2))
+
+    console.log('up', up)
+    console.log('low', low)
+    console.log('risk', risk)
+    console.log('mortality', mortality)
+    console.log('twoYear', twoYear)
+}
+
 
   const onTChange = (event) =>{
     tRef = event.target.value;
@@ -92,6 +140,8 @@ function App() {
 
       setPrediction(predData)
 
+      riskCalculation()
+
     }).catch((error) => {
       console.log(error)
     });
@@ -112,6 +162,7 @@ function App() {
           hpvRef = {hpvRef}
           stage = {stage_new}
           stage7 = {stage_new_7th}
+          riskCalculation={riskCalculation}
         />
       </Row>
     </Container>
@@ -135,14 +186,20 @@ function App() {
         hpvRef = {hpvRef}
         stage = {stage_new}
         stage7 = {stage_new_7th}
+        riskCalculation={riskCalculation}
       />
       <LineView 
         data={prediction}
         time={time}
       />
       <Stratification
-        yrIndex = {yearIndex}
-        data ={prediction[2][0]}
+        // yrIndex = {yearIndex}
+        // data ={prediction[2][0]}
+        riskCalculation={riskCalculation}
+        risk={risk}
+        perc={perc}
+        lowRef={lowRef}
+        upRef={upRef}
       />
     </Row>
   </Container>

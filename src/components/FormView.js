@@ -16,12 +16,12 @@ export   const FormView = ({
 }) =>(
     <Col className='d-flex justify-content-start'  md="2" >
       <Form id="back" className="formPadding"> 
-      <h4 id="textIndent">Input</h4>
+      <h4>Input</h4>
 
       <h6 id="textIndent">Patient Specifics</h6>
 
-      <Form.Group controlId="formGridState">
-        <Form.Label id="textIndent">Age</Form.Label>
+      <Form.Group controlId="formGridState" id="space">
+        <Form.Label>Age</Form.Label>
         <Form.Select defaultValue=">75" ref={ageRef} id="indent">
           <option value='<55'> &#60; 55 </option>
           <option value='55-65'> 55 - 65 </option>
@@ -31,7 +31,7 @@ export   const FormView = ({
       </Form.Group>
 
       <Form.Group controlId="formGridState" id='space'>
-        <Form.Label id="textIndent">Performance Score</Form.Label>
+        <Form.Label >Performance Score</Form.Label>
         <Form.Select defaultValue="0" ref={perfScoreRef} id="indent">
           <option value='0'>0</option>
           <option value='1'>1</option>
@@ -40,7 +40,7 @@ export   const FormView = ({
       </Form.Group>
 
       <Form.Group controlId="formGridState" id='space'>
-        <Form.Label id="textIndent">Pack Years</Form.Label>
+        <Form.Label>Pack Years</Form.Label>
         <Form.Select defaultValue=">50" ref={packRef} id="indent">
           <option value='<5'> &#60; 5 </option>
           <option value='5-25'> 5 - 25</option>

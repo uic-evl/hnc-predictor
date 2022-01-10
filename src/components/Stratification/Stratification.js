@@ -4,43 +4,19 @@ import * as d3 from 'd3'
 import './Stratification.css'
 
 let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/placeholder.png'
-let perc = null;
+// let perc = null;
 // let risk = null;
 export const Stratification = ({
-    yrIndex,
-    data
+    lowRef,
+    upRef,
+    risk,
+    perc,
+    riskCalculation
 }) =>{
-    let [risk, setRisk] = useState(null)
+    const onButtonClick = () =>{
 
-    let lowRef = React.createRef()
-    let upRef = React.createRef()
+        riskCalculation()
 
-    const onButtonClick = () => {
-        let val = data[yrIndex] * 100
-        val = val.toFixed(2);
-    
-        let mortality = 100 - val;
-        perc = mortality
-
-        let low = lowRef.current.value;
-        console.log(low)
-
-        let up = upRef.current.value;
-        console.log(up)
-
-        if (mortality < low){
-            setRisk('Low')
-            // risk = 'Low'
-        }else if(mortality >= low && mortality <= up){
-            setRisk('Intermediate')
-            // risk = 'Intermediate'
-        }else{
-            setRisk('High')
-            // risk = 'High'
-        }
-
-        console.log(risk)
-        console.log(mortality, val)
 
     }
 

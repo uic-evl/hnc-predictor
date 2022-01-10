@@ -8,7 +8,7 @@ export const RiskTable = ({
     time,
     data
 }) =>{
-    console.log(data)
+    // console.log(data)
     return (
         <Table striped bordered hover>
             <thead className="t-head">
@@ -25,6 +25,7 @@ export const RiskTable = ({
             <tbody>
                 {
                     data.map((d,i) =>{
+                        console.log(topic[i])
                         return(
                             <tr>
                                 <td>{topic[i]}</td>
