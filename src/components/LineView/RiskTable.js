@@ -6,17 +6,18 @@ export const RiskTable = ({
     head,
     topic,
     time,
-    data
+    data,
+    color
 }) =>{
     // console.log(data)
     return (
-        <Table striped bordered hover>
+        <Table striped bordered hover size="sm">
             <thead className="t-head">
                 <tr>
-                <th></th>
+                <th style={{width:"12%"}}></th>
                 {
                     head.map(h =>(
-                        <th>{h}y</th>
+                        <th style={{width:'9%'}}>{h}y</th>
 
                     ))
                 }
@@ -27,8 +28,13 @@ export const RiskTable = ({
                     data.map((d,i) =>{
                         console.log(topic[i])
                         return(
-                            <tr>
-                                <td>{topic[i]}</td>
+                            <tr style={{backgroundColor:color(i),
+                                color:'white'
+                            }}>
+                                <td>
+                                    <div></div>
+                                    {topic[i]}
+                                </td>
                                 {
                                     head.map(h=>{
                                         let index = time.indexOf(h)

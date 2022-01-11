@@ -8,6 +8,7 @@ import { AxisBottom } from "./AxisBottom"
 import { AxisLeft } from "./AxisLeft"
 import { LinePlot } from "./LinePlot"
 import { RiskTable } from "./RiskTable"
+import { RiskSvgTable } from "./RiskSvgTable"
 
 
 const width = window.innerWidth / 2
@@ -154,7 +155,10 @@ export const LineView = ({data, time}) => {
                     topic ={legend}
                     time={time}
                     data={data}
+                    color={color}
                 />
+
+                {/* <RiskSvgTable /> */}
             </Col>            
         </Row>
     </Col>
