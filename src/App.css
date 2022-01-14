@@ -17,14 +17,19 @@
 
 body{
   height: 100%;
-  background-color: red; /* For browsers that do not support gradients */
-  background: linear-gradient(to left top, green, white) fixed;
-  /* background-image: linear-gradient(white,green);
-  background-size:cover; */
-  
+  background-color: white;
 }
 
-#back{
+#inputback{
   box-shadow: 1px 1px 12px 1px rgb(0 0 0 / 25%);
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(249,244,244)
+  /* #f9f4f4  */
+}
+#outback{
+  box-shadow: 1px 1px 12px 1px rgb(0 0 0 / 25%);
+  background-color: rgba(231,239,246)
+}
+#stratback{
+  box-shadow: 1px 1px 12px 1px rgb(0 0 0 / 25%);
+  background-color: rgba(250,240,230, 0.5) 
 }

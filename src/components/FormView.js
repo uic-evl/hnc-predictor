@@ -15,7 +15,7 @@ export   const FormView = ({
   stage7
 }) =>(
     <Col className='d-flex justify-content-start'  md="2" >
-      <Form id="back" className="formPadding"> 
+      <Form id="inputback" className="formPadding"> 
       <h4>Input</h4>
 
       <h6 id="textIndent">Patient Specifics</h6>

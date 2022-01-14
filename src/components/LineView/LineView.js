@@ -70,7 +70,7 @@ export const LineView = ({data, time}) => {
     }
 
     return(
-    <Col className="linePlot" md="6" id="back">
+    <Col className="linePlot" md="6" id="outback">
         <Row>
             <Col md='12' style={{paddingLeft:'0px'}}>
                 <h4 className='d-flex justify-content-center'>Outcome Prediction</h4>

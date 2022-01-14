@@ -22,7 +22,7 @@ export const Stratification = ({
 
 
     return (
-        <Col className='strat' md='4' id="back" style={
+        <Col className='strat' md='4' id="stratback" style={
             {marginLeft:"1%", width:"31%"}}>
             <Row>
                 {/* <Col md='10' id="back"> */}
