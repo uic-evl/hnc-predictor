@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 
 import * as d3 from 'd3';
@@ -42,16 +42,16 @@ function App() {
   let lowRef = React.createRef()
   let upRef = React.createRef()
 
-  const defaultVal = {
-    "AGE": ">75",
-    "Performance_score": "0",
-    "pack_years": ">50",
-    "site" : "Hypopharynx",
-    "T_stage_LC" : "T4",
-    "T_stage" : "T4",
-    "N_stage" : "N2",
-    "HPV.P16.status" : "Positive"
-  };
+  // const defaultVal = {
+  //   "AGE": ">75",
+  //   "Performance_score": "0",
+  //   "pack_years": ">50",
+  //   "site" : "Hypopharynx",
+  //   "T_stage_LC" : "T4",
+  //   "T_stage" : "T4",
+  //   "N_stage" : "N2",
+  //   "HPV.P16.status" : "Positive"
+  // };
 
   const [prediction, setPrediction] = useState(null)
   const [risk, setRisk] = useState(null);
@@ -63,7 +63,7 @@ function App() {
 
   const riskCalculation = () => {
     if(prediction){
-      console.log(d3.select('#lowRef').node().value)
+      // console.log(d3.select('#lowRef').node().value)
       let low, up;
       if(lowRef.current === null){
         low = d3.select('#lowRef').node().value
@@ -74,11 +74,11 @@ function App() {
   
       }
   
-      console.log(low)
-      console.log(up)
+      // console.log(low)
+      // console.log(up)
   
   
-      console.log(prediction)
+      // console.log(prediction)
       let overallSurv = prediction[0][0]
   
       let twoYear = overallSurv[yearIndex] * 100
@@ -148,12 +148,20 @@ function App() {
 
       setPrediction(predData)
 
-      riskCalculation()
+      // riskCalculation()
 
     }).catch((error) => {
       console.log(error)
     });
+
   }
+
+  useEffect(() => {
+    riskCalculation();
+  }, [prediction])
+
+
+
   if(!prediction){
     return (
       <Container fluid>
