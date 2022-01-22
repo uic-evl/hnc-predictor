@@ -33,6 +33,7 @@ export const Stratification = ({
                             <FormControl
                             aria-label="lower"
                             aria-describedby="basic-addon1"
+                            id="lowRef"
                             ref={lowRef}
                             />
                             <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
@@ -45,6 +46,7 @@ export const Stratification = ({
                             <FormControl
                             aria-label="upper"
                             aria-describedby="basic-addon2"
+                            id="upRef"
                             ref={upRef}
                             />
                             <InputGroup.Text id="basic-addon2">%</InputGroup.Text>

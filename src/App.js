@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+import * as d3 from 'd3';
 
 import {Container, Row} from 'react-bootstrap'
 
@@ -25,6 +26,8 @@ const createArrayRange = (start, end, step) => {
 const time = Array.from(createArrayRange(0,10,0.1))
 
 const yearIndex = time.indexOf(2)
+let tRef = "T4";
+let nRef = "N2c";
 
 function App() {
   const ageRef = React.createRef();
@@ -32,8 +35,8 @@ function App() {
   const packRef = React.createRef();
   const siteRef = React.createRef();
   // let tlcRef = "T4";
-  let tRef = "T4";
-  let nRef = "N2c";
+  // let tRef = "T4";
+  // let nRef = "N2c";
   const hpvRef = React.createRef();
 
   let lowRef = React.createRef()
@@ -59,45 +62,50 @@ function App() {
   // }
 
   const riskCalculation = () => {
-    let low = lowRef.current.value;
-    console.log(low)
-
-    let up = upRef.current.value;
-    console.log(up)
-
-    console.log(prediction)
-    let overallSurv = prediction[0][0]
-
-    let twoYear = overallSurv[yearIndex] * 100
-    // twoYear = twoYear.toFixed(2);
-
-    let mortality = 100 - twoYear;
-    
-
-    // let low = lowRef.current.value;
-    // console.log(low)
-
-    // let up = upRef.current.value;
-    // console.log(up)
-
-    if (mortality < low){
-        setRisk('Low')
-        // risk = 'Low'
-    }else if(mortality >= low && mortality <= up){
-        setRisk('Intermediate')
-        // risk = 'Intermediate'
-    }else{
-        setRisk('High')
-        // risk = 'High'
+    if(prediction){
+      console.log(d3.select('#lowRef').node().value)
+      let low, up;
+      if(lowRef.current === null){
+        low = d3.select('#lowRef').node().value
+        up = d3.select('#upRef').node().value
+      }else{
+        low = lowRef.current.value;  
+        up = upRef.current.value;     
+  
+      }
+  
+      console.log(low)
+      console.log(up)
+  
+  
+      console.log(prediction)
+      let overallSurv = prediction[0][0]
+  
+      let twoYear = overallSurv[yearIndex] * 100
+      // twoYear = twoYear.toFixed(2);
+  
+      let mortality = 100 - twoYear;
+  
+      if (mortality < low){
+          setRisk('Low')
+          // risk = 'Low'
+      }else if(mortality >= low && mortality <= up){
+          setRisk('Intermediate')
+          // risk = 'Intermediate'
+      }else{
+          setRisk('High')
+          // risk = 'High'
+      }
+  
+      setPerc(mortality.toFixed(2))
+  
+      console.log('up', up)
+      console.log('low', low)
+      console.log('risk', risk)
+      console.log('mortality', mortality)
+      console.log('twoYear', twoYear)
     }
 
-    setPerc(mortality.toFixed(2))
-
-    console.log('up', up)
-    console.log('low', low)
-    console.log('risk', risk)
-    console.log('mortality', mortality)
-    console.log('twoYear', twoYear)
 }
 
 
@@ -124,7 +132,7 @@ function App() {
       "HPV.P16.status" : hpvRef.current.value
     }
     // console.log(defaultVal)
-    // console.log(val)
+    console.log(val)
     post(
       // 'http://131.193.78.149:8080/backend',
       'http://127.0.0.1:8080/backend',
