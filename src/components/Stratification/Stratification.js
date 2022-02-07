@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Col, Row, InputGroup, FormControl, Button, Image} from "react-bootstrap"
+import { Form, Col, Row, InputGroup, FormControl, Button, Image} from "react-bootstrap"
 import * as d3 from 'd3'
 import './Stratification.css'
 
@@ -11,13 +11,18 @@ export const Stratification = ({
     upRef,
     risk,
     perc,
-    riskCalculation
+    riskCalculation,
+    riskRef
 }) =>{
     const onButtonClick = () =>{
-
         riskCalculation()
+        handleChange()
+    }
 
-
+    const handleChange = () =>{
+        console.log(riskRef.current.value)
+        console.log(upRef.current.value)
+        console.log(lowRef.current.value)
     }
 
 
@@ -28,6 +33,16 @@ export const Stratification = ({
                 {/* <Col md='10' id="back"> */}
                     <h4 className='d-flex justify-content-center'>Stratification</h4>
                     <Row>
+                    <Form.Group controlId="formGridState">
+                        <Form.Label>Select Risk Prediction</Form.Label>
+                        <Form.Select defaultValue="OS" ref={riskRef} onChange={handleChange}>
+                        <option value='OS'> Overall Survival (OS) </option>
+                        <option value='LC'> Local Control (LC) </option>
+                        <option value='RC'> Regional Control (RC) </option>
+                        </Form.Select>
+                    </Form.Group>
+                    </Row>
+                    <Row>
                         <InputGroup className="mb-3" style={{width: '65%', left: '17%'}}>
                             <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
                             <FormControl
@@ -35,6 +50,7 @@ export const Stratification = ({
                             aria-describedby="basic-addon1"
                             id="lowRef"
                             ref={lowRef}
+                            defaultValue={5}
                             />
                             <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
                         </InputGroup>
@@ -48,6 +64,7 @@ export const Stratification = ({
                             aria-describedby="basic-addon2"
                             id="upRef"
                             ref={upRef}
+                            defaultValue={20}
                             />
                             <InputGroup.Text id="basic-addon2">%</InputGroup.Text>
                         </InputGroup>

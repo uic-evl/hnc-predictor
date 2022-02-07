@@ -39,6 +39,8 @@ function App() {
   // let nRef = "N2c";
   const hpvRef = React.createRef();
 
+  const riskRef = React.createRef();
+
   let lowRef = React.createRef()
   let upRef = React.createRef()
 
@@ -99,11 +101,11 @@ function App() {
   
       setPerc(mortality.toFixed(2))
   
-      console.log('up', up)
-      console.log('low', low)
-      console.log('risk', risk)
-      console.log('mortality', mortality)
-      console.log('twoYear', twoYear)
+      // console.log('up', up)
+      // console.log('low', low)
+      // console.log('risk', risk)
+      // console.log('mortality', mortality)
+      // console.log('twoYear', twoYear)
     }
 
 }
@@ -216,6 +218,7 @@ function App() {
         perc={perc}
         lowRef={lowRef}
         upRef={upRef}
+        riskRef = {riskRef}
       />
     </Row>
   </Container>
