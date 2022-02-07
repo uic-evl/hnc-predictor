@@ -1,5 +1,5 @@
 # Prototype Interface
-![Prototype](https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/interface.PNG)
+![Prototype](https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/interface1.PNG)
 
 
 
