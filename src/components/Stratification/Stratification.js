@@ -3,7 +3,7 @@ import { Form, Col, Row, InputGroup, FormControl, Button, Image} from "react-boo
 import * as d3 from 'd3'
 import './Stratification.css'
 
-let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/placeholder.png'
+let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/OS/OS_LT5_UT20.jpg'
 // let perc = null;
 // let risk = null;
 export const Stratification = ({
@@ -14,6 +14,8 @@ export const Stratification = ({
     riskCalculation,
     riskRef
 }) =>{
+    const [imgSrc, setImgSrc] = useState(placeholder);
+
     const onButtonClick = () =>{
         riskCalculation()
         handleChange()
@@ -23,6 +25,14 @@ export const Stratification = ({
         console.log(riskRef.current.value)
         console.log(upRef.current.value)
         console.log(lowRef.current.value)
+
+        let folder = riskRef.current.value;
+        let lower = lowRef.current.value;
+        let upper = upRef.current.value;
+
+        let imageUrl = `https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/${folder}/OS_LT${lower}_UT${upper}.jpg`;
+
+        setImgSrc(imageUrl)
     }
 
 
@@ -33,9 +43,9 @@ export const Stratification = ({
                 {/* <Col md='10' id="back"> */}
                     <h4 className='d-flex justify-content-center'>Stratification</h4>
                     <Row>
-                    <Form.Group controlId="formGridState">
+                    <Form.Group controlId="formGridState" id='selects'>
                         <Form.Label>Select Risk Prediction</Form.Label>
-                        <Form.Select defaultValue="OS" ref={riskRef} onChange={handleChange}>
+                        <Form.Select defaultValue="OS" ref={riskRef} onChange={handleChange}  style={{fontSize: '0.9em'}}>
                         <option value='OS'> Overall Survival (OS) </option>
                         <option value='LC'> Local Control (LC) </option>
                         <option value='RC'> Regional Control (RC) </option>
@@ -43,7 +53,7 @@ export const Stratification = ({
                     </Form.Group>
                     </Row>
                     <Row>
-                        <InputGroup className="mb-3" style={{width: '65%', left: '17%'}}>
+                        <InputGroup size="sm" className="mb-3" id="inputs">
                             <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
                             <FormControl
                             aria-label="lower"
@@ -57,7 +67,7 @@ export const Stratification = ({
                     </Row>
                     
                     <Row>
-                        <InputGroup className="mb-3" style={{width: '65%', left: '17%'}}>
+                        <InputGroup size="sm" className="mb-3" id="inputs">
                             <InputGroup.Text id="basic-addon2">Upper mortality risk</InputGroup.Text>
                             <FormControl
                             aria-label="upper"
@@ -71,6 +81,7 @@ export const Stratification = ({
                     </Row>
                     
                     <Button variant="primary" 
+                        size="sm"
                         onClick={onButtonClick}
                         style={{width: '15%', marginLeft: '56%'}}
                     >
@@ -79,7 +90,7 @@ export const Stratification = ({
                 {/* </Col> */}
             </Row>
             <Row className='survivalImage'>
-                <Image src={placeholder} fluid />
+                <Image src={imgSrc} style={{maxWidth: '60vh', maxHeight:'50vh'}} />
             </Row>
             {
                 risk !== null && 
