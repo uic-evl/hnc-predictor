@@ -90,7 +90,7 @@ export const Stratification = ({
                 {/* </Col> */}
             </Row>
             <Row className='survivalImage'>
-                <Image src={imgSrc} style={{maxWidth: '60vh', maxHeight:'50vh'}} />
+                <Image src={imgSrc} id='imageid'/>
             </Row>
             {
                 risk !== null && 

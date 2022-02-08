@@ -6,6 +6,16 @@
     /* height: 70vh; */
 }
 
+#imageid{
+    display: block;
+    max-width: 100vh;
+    max-height: 50vh;
+    width: auto;
+    height: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+}
 
 #inputs{
     width: 65%;
