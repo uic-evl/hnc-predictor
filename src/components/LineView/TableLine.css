@@ -1,0 +1,9 @@
+#tableLine{
+    position: absolute;
+    top: 60%;
+}
+
+#tbl{
+    stroke: #E7EFF6;
+    stroke-width: 0.4%;
+}

@@ -11,13 +11,13 @@ export const RiskTable = ({
 }) =>{
     // console.log(data)
     return (
-        <Table striped bordered hover size="sm">
+        <Table striped hover size="sm">
             <thead className="t-head">
                 <tr>
-                <th style={{width:"12%"}}></th>
+                <th style={{width:"11%"}}></th>
                 {
                     head.map(h =>(
-                        <th style={{width:'9%'}}>{h}y</th>
+                        <th style={{width:'8%'}}>{h}y</th>
 
                     ))
                 }

@@ -5,5 +5,7 @@
 .table{
     /* width: 100px; */
     height: 100px;
-    border-collapse: none;
+    /* border-collapse: none; */
+    text-align: left;
+    margin-top: 3%;
 }

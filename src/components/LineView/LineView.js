@@ -9,6 +9,7 @@ import { AxisLeft } from "./AxisLeft"
 import { LinePlot } from "./LinePlot"
 import { RiskTable } from "./RiskTable"
 import { RiskSvgTable } from "./RiskSvgTable"
+import { TableLine } from "./TableLine"
 
 
 const width = window.innerWidth / 2
@@ -157,6 +158,18 @@ export const LineView = ({data, time}) => {
                     data={data}
                     color={color}
                 />
+
+                <TableLine 
+                    width={width}
+                    height = {height}
+                    margin={margin}
+                    xScale ={xScale}
+                    yScale = {yScale}
+                    scaleOffset = {5}
+                    innerHeight={innerHeight}
+                />
+
+
 
                 {/* <RiskSvgTable /> */}
             </Col>            
