@@ -161,7 +161,6 @@ export const LineView = ({data, time}) => {
 
                 <TableLine 
                     width={width}
-                    height = {height}
                     margin={margin}
                     xScale ={xScale}
                     yScale = {yScale}

@@ -11,7 +11,15 @@ export const TableLine = ({
     const [xStart, xEnd] = xScale.range();
     const [, yEnd] = yScale.range();
     const ticks = xScale.ticks();
-    const height = window.innerHeight - (window.innerHeight / 1.75) - 50
+    let height = 0
+    if(window.innerHeight <= 750){
+        // normal laptop
+        height = window.innerHeight - (window.innerHeight / 1.6)
+    }else{
+        height = window.innerHeight - (window.innerHeight / 1.35)
+
+    } 
+    // console.log(window.innerHeight)
     return (
         <svg width={width} height={height} id="tableLine">
             <g transform={`translate(${margin.left}, ${margin.top})`}>

@@ -32,7 +32,6 @@ export const RiskTable = ({
                                 color:'white'
                             }}>
                                 <td>
-                                    <div></div>
                                     {topic[i]}
                                 </td>
                                 {

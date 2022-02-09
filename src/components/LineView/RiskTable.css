@@ -4,8 +4,14 @@
 }
 .table{
     /* width: 100px; */
-    height: 100px;
+    /* height: 100px; */
     /* border-collapse: none; */
-    text-align: left;
+    text-align: center;
     margin-top: 3%;
+}
+th{
+    /* position: relative; */
+    /* vertical-align: top; */
+    /* padding-right: 5px; */
+    /* text-align: center; */
 }
