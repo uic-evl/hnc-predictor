@@ -17,7 +17,7 @@ export const AxisLeft = ({xScale, yScale, scaleOffset}) => {
                         x={xStart - scaleOffset * 4}
                         y={y + scaleOffset * 1.25}
                         >
-                        {t}
+                        {t * 100}
                         </text>
                     </React.Fragment>
                     );

@@ -24,7 +24,7 @@ const xAxisLabelOffset = 50
 const yAxisLabelOffset = 40
 
 const xAxisLabel = 'Time (years)'
-const yAxisLabel = 'Predicted Risk'
+const yAxisLabel = 'Predicted Risk (%)'
 
 const legend = ['Overall Survival', "Local Control", "Regional Control"]
 const clnames = ['overall', 'local', 'region']
