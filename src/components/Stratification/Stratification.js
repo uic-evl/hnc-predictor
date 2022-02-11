@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Form, Col, Row, InputGroup, FormControl, Button, Image} from "react-bootstrap"
+import { AiFillQuestionCircle } from "react-icons/ai"
+import { Form, Col, Row, InputGroup, FormControl, Button, Image, Modal} from "react-bootstrap"
 import * as d3 from 'd3'
 import './Stratification.css'
 
@@ -9,11 +10,17 @@ let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface
 export const Stratification = ({
     lowRef,
     upRef,
-    risk,
-    perc,
+    // overallRisk,
+    // overallPerc,
+    // localRisk,
+    // localPerc,
+    // regionalRisk,
+    // regionalPerc,
+    patientClass,
     riskCalculation,
     riskRef
 }) =>{
+    console.log(patientClass)
     const [imgSrc, setImgSrc] = useState(placeholder);
 
     const onButtonClick = () =>{
@@ -35,6 +42,16 @@ export const Stratification = ({
         setImgSrc(imageUrl)
     }
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    const [riskShow, setriskShow] = useState(false);
+
+    const handleriskClose = () => setriskShow(false);
+    const handleriskShow = () => setriskShow(true);
 
     return (
         <Col className='strat' md='4' id="stratback" style={
@@ -44,7 +61,7 @@ export const Stratification = ({
                     <h4 className='d-flex justify-content-center'>Model-based Stratification</h4>
                     <Row>
                     <Form.Group controlId="formGridState" id='selects'>
-                        <Form.Label>Select Risk Prediction</Form.Label>
+                        <Form.Label>Select risk-thresholds <AiFillQuestionCircle onClick={handleShow}/></Form.Label>
                         <Form.Select defaultValue="OS" ref={riskRef} onChange={handleChange}  style={{fontSize: '0.9em'}}>
                         <option value='OS'> Overall Survival (OS) </option>
                         <option value='LC'> Local Control (LC) </option>
@@ -52,6 +69,27 @@ export const Stratification = ({
                         </Form.Select>
                     </Form.Group>
                     </Row>
+
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                        <Modal.Title>Select risk-thresholds</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Please select the 2-year risk you select as threshold for 
+                            low- and high-risk mortality, local and/or regional failure (n.b. these are the inverse of the survival/control
+                             risk displayed in the graph).<br/>
+                             The default low- and high-risk thresholds are 5% and 25%, which are determined 
+                             on the large-scale dataset, refer to [link_to_paper]
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
+
+
+
+
                     <Row>
                         <InputGroup size="sm" className="mb-3" id="inputs">
                             <InputGroup.Text id="basic-addon1">Low-risk threshold</InputGroup.Text>
@@ -74,7 +112,7 @@ export const Stratification = ({
                             aria-describedby="basic-addon2"
                             id="upRef"
                             ref={upRef}
-                            defaultValue={20}
+                            defaultValue={25}
                             />
                             <InputGroup.Text id="basic-addon2">%</InputGroup.Text>
                         </InputGroup>
@@ -93,10 +131,28 @@ export const Stratification = ({
                 <Image src={imgSrc} id='imageid'/>
             </Row>
             {
-                risk !== null && 
-                <Row style={{marginLeft: '31%'}}>
-                    <p><b>New Patient has: </b></p>
-                    <p><b>{risk}</b> mortality risk ({perc}%)</p>
+                patientClass !== null && 
+                <Row style={{marginLeft: '0%'}}>
+                    <p><b>The current patient is classified as: <AiFillQuestionCircle onClick={handleriskShow}/> </b></p>
+                    <p><b>{patientClass.overallRisk}-risk</b> for mortality (2y risk = {patientClass.overallPerc}%)</p>
+                    <p><b>{patientClass.localRisk}-risk</b> for local tumor failure (2y risk = {patientClass.localPerc}%)</p>
+                    <p><b>{patientClass.regionalRisk}-risk</b> for regional tumor failure (2y risk = {patientClass.regionalPerc}%)</p>
+
+
+                    <Modal show={riskShow} onHide={handleriskClose}>
+                        <Modal.Header closeButton>
+                        <Modal.Title>Current Patient Classification</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>This classification is dependent on the thresholds
+                             inputted in the top of this panel
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={handleriskClose}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
+
                 </Row>
 
             }

@@ -38,7 +38,7 @@ export const RiskTable = ({
                                     head.map(h=>{                                     
                                         // console.log(right)
                                         let index = time.indexOf(h)
-                                        console.log(h)
+                                        // console.log(h)
                                         // console.log(index)
                                         // console.log(d[index])
                                         let val = d[0][index] * 100

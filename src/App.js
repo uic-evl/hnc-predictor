@@ -56,14 +56,24 @@ function App() {
   // };
 
   const [prediction, setPrediction] = useState(null)
-  const [risk, setRisk] = useState(null);
-  const [perc, setPerc] = useState(null)
+
+  const [patientClass, setPatientClass] = useState(null)
+
+  const [overallRisk, setOverallRisk] = useState(null);
+  const [overallPerc, setOverallPerc] = useState(null);
+
+  const [localRisk, setLocalRisk] = useState(null);
+  const [localPerc, setLocalPerc] = useState(null);
+
+  const [regionalRisk, setRegionalRisk] = useState(null);
+  const [regionalPerc, setRegionalPerc] = useState(null);
 
   // const onTLChange = (event) =>{
   //   tlcRef = event.target.value;
   // }
 
   const riskCalculation = () => {
+    let riskValues = {}
     if(prediction){
       // console.log(d3.select('#lowRef').node().value)
       let low, up;
@@ -81,31 +91,85 @@ function App() {
   
   
       // console.log(prediction)
+      // console.log(prediction[1][0])
       let overallSurv = prediction[0][0]
   
-      let twoYear = overallSurv[yearIndex] * 100
+      let twoYearOverall = overallSurv[yearIndex] * 100
       // twoYear = twoYear.toFixed(2);
   
-      let mortality = 100 - twoYear;
+      let overallMortality = 100 - twoYearOverall;
   
-      if (mortality < low){
-          setRisk('Low')
+      if (overallMortality < low){
+          // setOverallRisk('Low')
           // risk = 'Low'
-      }else if(mortality >= low && mortality <= up){
-          setRisk('Intermediate')
+          riskValues.overallRisk = 'Low'
+      }else if(overallMortality >= low && overallMortality <= up){
+          // setOverallRisk('Intermediate')
           // risk = 'Intermediate'
+          riskValues.overallRisk = 'Intermediate'
       }else{
-          setRisk('High')
+          // setOverallRisk('High')
           // risk = 'High'
+          riskValues.overallRisk = 'High'
       }
   
-      setPerc(mortality.toFixed(2))
+      // setOverallPerc(overallMortality.toFixed(2))
+      riskValues.overallPerc = overallMortality.toFixed(2)
   
+      let localServ = prediction[1][0]
+  
+      let twoYearLocal = localServ[yearIndex] * 100
+      // twoYear = twoYear.toFixed(2);
+  
+      let localMortality = 100 - twoYearLocal;
+  
+      if (localMortality < low){
+          // setLocalRisk('Low')
+          // risk = 'Low'
+          riskValues.localRisk = 'Low'
+      }else if(localMortality >= low && localMortality <= up){
+          // setLocalRisk('Intermediate')
+          // risk = 'Intermediate'
+          riskValues.localRisk = 'Intermediate'
+      }else{
+          // setLocalRisk('High')
+          // risk = 'High'
+          riskValues.localRisk = 'High'
+      }
+  
+      // setLocalPerc(localMortality.toFixed(2))
+      riskValues.localPerc = localMortality.toFixed(2)
+
+      let regionalSurv = prediction[2][0]
+  
+      let twoYearRegional = regionalSurv[yearIndex] * 100
+      // twoYear = twoYear.toFixed(2);
+  
+      let regionalMortality = 100 - twoYearRegional;
+  
+      if (regionalMortality < low){
+          // setRegionalRisk('Low')
+          // risk = 'Low'
+          riskValues.regionalRisk = 'Low'
+      }else if(regionalMortality >= low && regionalMortality <= up){
+          // setRegionalRisk('Intermediate')
+          // risk = 'Intermediate'
+          riskValues.regionalRisk = 'Intermediate'
+      }else{
+          // setRegionalRisk('High')
+          // risk = 'High'
+          riskValues.regionalRisk = 'High'
+      }
+  
+      // setRegionalPerc(regionalMortality.toFixed(2))
+      riskValues.regionalPerc = regionalMortality.toFixed(2)
       // console.log('up', up)
       // console.log('low', low)
       // console.log('risk', risk)
       // console.log('mortality', mortality)
       // console.log('twoYear', twoYear)
+
+      setPatientClass(riskValues)
     }
 
 }
@@ -214,8 +278,13 @@ function App() {
         // yrIndex = {yearIndex}
         // data ={prediction[2][0]}
         riskCalculation={riskCalculation}
-        risk={risk}
-        perc={perc}
+        // overallRisk={overallRisk}
+        // overallPerc={overallPerc}
+        // localRisk={localRisk}
+        // localPerc={localPerc}
+        // regionalRisk={regionalRisk}
+        // regionalPerc={regionalPerc}
+        patientClass = {patientClass}
         lowRef={lowRef}
         upRef={upRef}
         riskRef = {riskRef}
