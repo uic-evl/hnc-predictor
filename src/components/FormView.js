@@ -1,4 +1,8 @@
-import { Form, Col, Button } from "react-bootstrap"
+import { Form, Col, Button, Modal } from "react-bootstrap"
+import { useState } from "react"
+
+import { AiFillQuestionCircle } from "react-icons/ai"
+
 import './FormView.css'
 
 export   const FormView = ({
@@ -13,7 +17,13 @@ export   const FormView = ({
   hpvRef,
   stage,
   stage7
-}) =>(
+}) =>{
+  const [ajccShow, setajccShow] = useState(false);
+
+  const handleajccClose = () => setajccShow(false);
+  const handleajccShow = () => setajccShow(true);
+
+  return(
     <Col className='d-flex justify-content-start'  md="2" >
       <Form id="inputback" className="formPadding"> 
       <h4>Input Variables</h4>
@@ -217,8 +227,26 @@ export   const FormView = ({
       {
         stage !== null &&
         <div id='textIndent'>
-          AJCC<sup>8th</sup> stage:  <b>{stage}</b>
+          AJCC<sup>8th</sup> stage:  <b>{stage}</b> <AiFillQuestionCircle onClick={handleajccShow}/>
+
+          <Modal show={ajccShow} onHide={handleajccClose}>
+            <Modal.Header closeButton>
+            <Modal.Title>AJCC<sup>8th</sup> stage</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              This AJCC <sup>8th</sup> staging is generated from the T-stage, 
+              N-stage, tumor site and HPV-status input with in-house 
+              developed algorithm. Details can be found in the 
+              supplementary data of the manuscript [link_to_paper]
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleajccClose}>
+                Close
+            </Button>
+            </Modal.Footer>
+        </Modal>
         </div>
+        
       }
       <br/>
       
@@ -231,4 +259,4 @@ export   const FormView = ({
       </Form>
 
     </Col>
-  )
+  )}
