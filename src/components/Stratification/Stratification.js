@@ -128,6 +128,7 @@ export const Stratification = ({
                 {/* </Col> */}
             </Row>
             <Row className='survivalImage'>
+                <AiFillQuestionCircle />
                 <Image src={imgSrc} id='imageid'/>
             </Row>
             {
