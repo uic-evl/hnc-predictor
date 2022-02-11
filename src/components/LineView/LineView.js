@@ -1,4 +1,7 @@
-import { Col, Row } from "react-bootstrap"
+import { Col, Row, Button, Modal } from "react-bootstrap"
+import {AiFillQuestionCircle} from 'react-icons/ai'
+
+import { useState } from "react"
 
 import { scaleLinear, scaleOrdinal } from "d3"
 
@@ -70,11 +73,31 @@ export const LineView = ({data, time}) => {
         d3.selectAll('#line-plot').style('opacity', 1)
     }
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return(
     <Col className="linePlot" md="6" id="outback">
         <Row>
             <Col md='12' style={{paddingLeft:'0px'}}>
-                <h4 className='d-flex justify-content-center'>Outcome Prediction</h4>
+                <h4 className='d-flex justify-content-center'>Outcome Prediction <AiFillQuestionCircle onClick={handleShow}/></h4>
+
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Outcome Prediction</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>The outcome curves are based on the clinical models developed and validated 
+                        on an international dataset &#62; 4500 patients [link_to_paper]
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
+
                 <svg width={width} height={height}>
                     <g transform={`translate(${margin.left}, ${margin.top})`}>
                     
