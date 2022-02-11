@@ -11,14 +11,14 @@ export const TableLine = ({
     const [xStart, xEnd] = xScale.range();
     const [, yEnd] = yScale.range();
     const ticks = xScale.ticks();
-    let height = 0
-    if(window.innerHeight <= 750){
-        // normal laptop
-        height = window.innerHeight - (window.innerHeight / 1.6)
-    }else{
-        height = window.innerHeight - (window.innerHeight / 1.35)
+    let height = 50
+    // if(window.innerHeight <= 750){
+    //     // normal laptop
+    //     height = window.innerHeight - (window.innerHeight / 1.6)
+    // }else{
+    //     height = window.innerHeight - (window.innerHeight / 1.35)
 
-    } 
+    // } 
     // console.log(window.innerHeight)
     return (
         <svg width={width} height={height} id="tableLine">
@@ -27,20 +27,20 @@ export const TableLine = ({
                     {/* <line className='axisLine' x1={xStart} x2={xEnd} y1={yEnd} y2={yEnd} /> */}
                     <g className="ticks">
                         {ticks.map((t, i) => {
-                            if(t !== 10){
+                            // if(t !== 10){
                                 const x = xScale(t);
                                 return (
                                 <React.Fragment key={i}>
                                     <line x1={x} x2={x} y1={yEnd} y2={yEnd + height} id='tbl'/>
-                                    {/* <text
+                                    <text
                                     x={x}
                                     y={yEnd + scaleOffset * 5}
                                     >
                                     {t}
-                                    </text> */}
+                                    </text>
                                 </React.Fragment>
                                 );
-                            }
+                            // }
                             
                         })}
                     </g>

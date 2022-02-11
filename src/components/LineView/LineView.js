@@ -151,15 +151,7 @@ export const LineView = ({data, time}) => {
         </Row>
         <Row>
             <Col md='12' style={{paddingLeft:'0px'}}>
-                <RiskTable
-                    head={years}
-                    topic ={legend}
-                    time={time}
-                    data={data}
-                    color={color}
-                />
-
-                <TableLine 
+            <TableLine 
                     width={width}
                     margin={margin}
                     xScale ={xScale}
@@ -168,7 +160,13 @@ export const LineView = ({data, time}) => {
                     innerHeight={innerHeight}
                 />
 
-
+                <RiskTable
+                    head={years}
+                    topic ={legend}
+                    time={time}
+                    data={data}
+                    color={color}
+                />
 
                 {/* <RiskSvgTable /> */}
             </Col>            
