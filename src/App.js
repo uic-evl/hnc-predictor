@@ -59,14 +59,14 @@ function App() {
 
   const [patientClass, setPatientClass] = useState(null)
 
-  const [overallRisk, setOverallRisk] = useState(null);
-  const [overallPerc, setOverallPerc] = useState(null);
+  // const [overallRisk, setOverallRisk] = useState(null);
+  // const [overallPerc, setOverallPerc] = useState(null);
 
-  const [localRisk, setLocalRisk] = useState(null);
-  const [localPerc, setLocalPerc] = useState(null);
+  // const [localRisk, setLocalRisk] = useState(null);
+  // const [localPerc, setLocalPerc] = useState(null);
 
-  const [regionalRisk, setRegionalRisk] = useState(null);
-  const [regionalPerc, setRegionalPerc] = useState(null);
+  // const [regionalRisk, setRegionalRisk] = useState(null);
+  // const [regionalPerc, setRegionalPerc] = useState(null);
 
   // const onTLChange = (event) =>{
   //   tlcRef = event.target.value;
