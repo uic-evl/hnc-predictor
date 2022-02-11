@@ -41,7 +41,7 @@ export const Stratification = ({
             {marginLeft:"1%", width:"31%"}}>
             <Row>
                 {/* <Col md='10' id="back"> */}
-                    <h4 className='d-flex justify-content-center'>Stratification</h4>
+                    <h4 className='d-flex justify-content-center'>Model-based Stratification</h4>
                     <Row>
                     <Form.Group controlId="formGridState" id='selects'>
                         <Form.Label>Select Risk Prediction</Form.Label>
@@ -54,7 +54,7 @@ export const Stratification = ({
                     </Row>
                     <Row>
                         <InputGroup size="sm" className="mb-3" id="inputs">
-                            <InputGroup.Text id="basic-addon1">Lower mortality risk</InputGroup.Text>
+                            <InputGroup.Text id="basic-addon1">Low-risk threshold</InputGroup.Text>
                             <FormControl
                             aria-label="lower"
                             aria-describedby="basic-addon1"
@@ -68,7 +68,7 @@ export const Stratification = ({
                     
                     <Row>
                         <InputGroup size="sm" className="mb-3" id="inputs">
-                            <InputGroup.Text id="basic-addon2">Upper mortality risk</InputGroup.Text>
+                            <InputGroup.Text id="basic-addon2">High-risk threshold</InputGroup.Text>
                             <FormControl
                             aria-label="upper"
                             aria-describedby="basic-addon2"

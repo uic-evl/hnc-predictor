@@ -16,7 +16,7 @@ export   const FormView = ({
 }) =>(
     <Col className='d-flex justify-content-start'  md="2" >
       <Form id="inputback" className="formPadding"> 
-      <h4>Input</h4>
+      <h4>Input Variables</h4>
 
       <h6 id="textIndent">Patient Specifics</h6>
 
