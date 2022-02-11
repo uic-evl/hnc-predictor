@@ -97,7 +97,7 @@ function App() {
       let twoYearOverall = overallSurv[yearIndex] * 100
       // twoYear = twoYear.toFixed(2);
   
-      let overallMortality = 100 - twoYearOverall;
+      let overallMortality = Math.round(100 - twoYearOverall);
   
       if (overallMortality < low){
           // setOverallRisk('Low')
@@ -114,14 +114,15 @@ function App() {
       }
   
       // setOverallPerc(overallMortality.toFixed(2))
-      riskValues.overallPerc = overallMortality.toFixed(2)
+      // riskValues.overallPerc = overallMortality.toFixed(2)
+      riskValues.overallPerc = overallMortality
   
       let localServ = prediction[1][0]
   
       let twoYearLocal = localServ[yearIndex] * 100
       // twoYear = twoYear.toFixed(2);
   
-      let localMortality = 100 - twoYearLocal;
+      let localMortality = Math.round(100 - twoYearLocal);
   
       if (localMortality < low){
           // setLocalRisk('Low')
@@ -138,14 +139,15 @@ function App() {
       }
   
       // setLocalPerc(localMortality.toFixed(2))
-      riskValues.localPerc = localMortality.toFixed(2)
+      // riskValues.localPerc = localMortality.toFixed(2)
+      riskValues.localPerc = localMortality
 
       let regionalSurv = prediction[2][0]
   
       let twoYearRegional = regionalSurv[yearIndex] * 100
       // twoYear = twoYear.toFixed(2);
   
-      let regionalMortality = 100 - twoYearRegional;
+      let regionalMortality = Math.round(100 - twoYearRegional);
   
       if (regionalMortality < low){
           // setRegionalRisk('Low')
@@ -162,7 +164,8 @@ function App() {
       }
   
       // setRegionalPerc(regionalMortality.toFixed(2))
-      riskValues.regionalPerc = regionalMortality.toFixed(2)
+      // riskValues.regionalPerc = regionalMortality.toFixed(2)
+      riskValues.regionalPerc = regionalMortality;
       // console.log('up', up)
       // console.log('low', low)
       // console.log('risk', risk)

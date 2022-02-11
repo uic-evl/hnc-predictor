@@ -42,7 +42,8 @@ export const RiskTable = ({
                                         // console.log(index)
                                         // console.log(d[index])
                                         let val = d[0][index] * 100
-                                        val = val.toFixed(2);
+                                        // val = val.toFixed(2);
+                                        val = Math.round(val)
                                         // if(window.innerHeight <= 750){
                                         //     if(h === 5){
                                         //         return(
