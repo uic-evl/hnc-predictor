@@ -7,12 +7,16 @@ import { scaleLinear, scaleOrdinal } from "d3"
 
 import * as d3 from 'd3'
 
-import { AxisBottom } from "./AxisBottom"
-import { AxisLeft } from "./AxisLeft"
-import { LinePlot } from "./LinePlot"
+import { CreateBottomAxis } from "./CreateBottomAxis"
+import { CreateLeftAxis } from "./CreateLeftAxis"
+import { CreateLinePlots } from "./CreateLinePlots"
+
 import { RiskTable } from "./RiskTable"
 import { RiskSvgTable } from "./RiskSvgTable"
 import { TableLine } from "./TableLine"
+
+
+
 
 
 const width = window.innerWidth / 2
@@ -34,6 +38,8 @@ const textPaddingY = 10
 
 const legendSize = 10
 const legendOffset = 20
+
+const scaleOffset = 5
 
 const years = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -78,6 +84,7 @@ export const LineView = ({data, time}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    
     return(
     <Col className="linePlot" md="6" id="outback">
         <Row>
@@ -100,75 +107,43 @@ export const LineView = ({data, time}) => {
 
                 <svg width={width} height={height}>
                     <g transform={`translate(${margin.left}, ${margin.top})`}>
-                    
-                    <AxisBottom 
-                        xScale ={xScale}
-                        yScale = {yScale}
-                        scaleOffset = {5}
-                        innerHeight={innerHeight}
-                    />
 
-                    <text
-                        className='axis-label'
-                        x={innerWidth / 2}
-                        y={innerHeight + xAxisLabelOffset}
-                        textAnchor='middle'
-                    >{xAxisLabel}</text>
+                        <CreateBottomAxis 
+                            xScale={xScale}
+                            yScale={yScale}
+                            innerHeight={innerHeight}
+                            innerWidth={innerWidth}
+                            xAxisLabelOffset={xAxisLabelOffset}
+                            xAxisLabel={xAxisLabel}
+                            scaleOffset={scaleOffset}
+                        />
 
-                    <AxisLeft 
-                        xScale={xScale}
-                        yScale = {yScale}
-                        // innerWidth={innerWidth}
-                        scaleOffset = {5}
-                    />
-                    
-                    <text
-                        className='axis-label'       
-                        textAnchor='middle'
-                        transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2} )rotate(-90)`}
-                    >{yAxisLabel}</text>
+                        <CreateLeftAxis 
+                            xScale={xScale}
+                            yScale={yScale}
+                            yAxisLabelOffset={yAxisLabelOffset}
+                            yAxisLabel={yAxisLabel}
+                            scaleOffset={scaleOffset}
+                            innerHeight={innerHeight}
+                        />
 
-                    {data.map((pred, i) =>{ 
-                        // console.log(i)
-                        // console.log(color(i))
-                        return(
-                        <>
-                            <LinePlot 
-                                key={i}
-                                classVal={clnames[i]}
-                                data={pred}
-                                xScale = {xScale}
-                                yScale = {yScale}
-                                color={color(i)}
-                                time={time}
-                                onHover={onHover}
-                                hoverOut={hoverOut}
-                            />
-
-                            <g
-                                className='legend'
-                                onMouseEnter={() => onHover(clnames[i])}
-                                onMouseOut = {() => hoverOut()}
-                            >
-                                <rect
-                                    x = {(innerWidth - margin.right - margin.left)}
-                                    y = {legendOffset * i}
-                                    width = {legendSize}
-                                    height = {legendSize}
-                                    fill = {color(i)}
-                                />
-                                <text
-                                    x = {textPaddingX + (innerWidth - margin.right - margin.left)}
-                                    y = {textPaddingY + (legendOffset * i)}
-                                >
-                                    {`${legend[i]}`}
-                                </text>
-
-                            </g>
-
-                        </>
-
-                    )})}
+                        <CreateLinePlots 
+                            data={data}
+                            clnames={clnames}
+                            xScale={xScale}
+                            yScale={yScale}
+                            color={color}
+                            time={time}
+                            onHover={onHover}
+                            hoverOut={hoverOut}
+                            innerWidth={innerWidth}
+                            margin = {margin}
+                            legendOffset={legendOffset}
+                            legendSize={legendSize}
+                            textPaddingX={textPaddingX}
+                            textPaddingY={textPaddingY}
+                            legend={legend}
+                        />
                     </g>
                 </svg>
             </Col>

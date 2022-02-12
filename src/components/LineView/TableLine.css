@@ -6,4 +6,5 @@
 #tbl{
     stroke: #2b8add;
     stroke-width: 0.4%;
+    stroke-dasharray: 1%;
 }
