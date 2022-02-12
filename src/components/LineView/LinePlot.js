@@ -6,7 +6,9 @@ export const LinePlot = ({
     xScale, 
     yScale, 
     color,
-    time 
+    time ,
+    onHover,
+    hoverOut
     }) => {
         // console.log("in line plot")
         // console.log(data[0])
@@ -18,6 +20,8 @@ export const LinePlot = ({
                 fill="none"
                 stroke={color}
                 strokeWidth={"2px"}
+                onMouseEnter={() => onHover(classVal)}
+                onMouseOut={() => hoverOut()}
                 d={line()
                     .x((d,i) => {
                         // console.log("line plot d")

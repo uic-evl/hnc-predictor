@@ -63,7 +63,7 @@ export const LineView = ({data, time}) => {
         .range(["#984ea3", "#377eb8", '#d95f02'])
 
     const onHover = (val) => {
-        // console.log(legend[val])
+        console.log(val)
         d3.selectAll('#line-plot').style('opacity', 0.2)
         d3.select(`.${val}`).style('opacity', 1)
         
@@ -141,6 +141,8 @@ export const LineView = ({data, time}) => {
                                 yScale = {yScale}
                                 color={color(i)}
                                 time={time}
+                                onHover={onHover}
+                                hoverOut={hoverOut}
                             />
 
                             <g
@@ -150,14 +152,14 @@ export const LineView = ({data, time}) => {
                             >
                                 <rect
                                     x = {(innerWidth - margin.right - margin.left)}
-                                    y = {legendOffset + legendOffset * i}
+                                    y = {legendOffset * i}
                                     width = {legendSize}
                                     height = {legendSize}
                                     fill = {color(i)}
                                 />
                                 <text
                                     x = {textPaddingX + (innerWidth - margin.right - margin.left)}
-                                    y = {textPaddingY + (legendOffset + legendOffset * i)}
+                                    y = {textPaddingY + (legendOffset * i)}
                                 >
                                     {`${legend[i]}`}
                                 </text>
