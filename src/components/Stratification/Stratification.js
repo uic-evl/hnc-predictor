@@ -61,7 +61,7 @@ export const Stratification = ({
                     <h4 className='d-flex justify-content-center'>Model-based Stratification</h4>
                     <Row>
                     <Form.Group controlId="formGridState" id='selects'>
-                        <Form.Label>Select risk-thresholds <AiFillQuestionCircle onClick={handleShow}/></Form.Label>
+                        <Form.Label id="riskFormLabel">Select risk-thresholds <AiFillQuestionCircle onClick={handleShow}/></Form.Label>
                         <Form.Select defaultValue="OS" ref={riskRef} onChange={handleChange}  style={{fontSize: '0.9em'}}>
                         <option value='OS'> Overall Survival (OS) </option>
                         <option value='LC'> Local Control (LC) </option>
@@ -91,7 +91,7 @@ export const Stratification = ({
 
 
                     <Row>
-                        <InputGroup size="sm" className="mb-3" id="inputs">
+                        <InputGroup size="sm" id="inputs">
                             <InputGroup.Text id="basic-addon1">Low-risk threshold</InputGroup.Text>
                             <FormControl
                             aria-label="lower"
@@ -105,7 +105,7 @@ export const Stratification = ({
                     </Row>
                     
                     <Row>
-                        <InputGroup size="sm" className="mb-3" id="inputs">
+                        <InputGroup size="sm" id="inputs">
                             <InputGroup.Text id="basic-addon2">High-risk threshold</InputGroup.Text>
                             <FormControl
                             aria-label="upper"
@@ -134,10 +134,10 @@ export const Stratification = ({
             {
                 patientClass !== null && 
                 <Row style={{marginLeft: '0%'}}>
-                    <p><b>The current patient is classified as: <AiFillQuestionCircle onClick={handleriskShow}/> </b></p>
-                    <p><b>{patientClass.overallRisk}-risk</b> for mortality (2y risk = {patientClass.overallPerc}%)</p>
-                    <p><b>{patientClass.localRisk}-risk</b> for local tumor failure (2y risk = {patientClass.localPerc}%)</p>
-                    <p><b>{patientClass.regionalRisk}-risk</b> for regional tumor failure (2y risk = {patientClass.regionalPerc}%)</p>
+                    <p><b>The current patient is classified as: <AiFillQuestionCircle onClick={handleriskShow}/> </b> <br/>
+                    <b>{patientClass.overallRisk}-risk</b> for mortality (2y risk = {patientClass.overallPerc}%) <br/>
+                    <b>{patientClass.localRisk}-risk</b> for local tumor failure (2y risk = {patientClass.localPerc}%) <br/>
+                    <b>{patientClass.regionalRisk}-risk</b> for regional tumor failure (2y risk = {patientClass.regionalPerc}%)</p>
 
 
                     <Modal show={riskShow} onHide={handleriskClose}>

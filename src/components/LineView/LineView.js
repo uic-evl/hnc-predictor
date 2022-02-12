@@ -191,7 +191,7 @@ export const LineView = ({data, time}) => {
                     color={color}
                 />
 
-                <RiskSvgTable />
+                {/* <RiskSvgTable /> */}
             </Col>            
         </Row>
     </Col>

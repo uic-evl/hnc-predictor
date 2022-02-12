@@ -21,7 +21,7 @@
 #inputs{
     width: 65%;
     left: 17%;
-
+    margin-bottom: 1%;
 }
 
 #selects{
@@ -36,4 +36,8 @@
     position:absolute;
     /* top: -7px;
     left: 255px; */
+}
+
+#riskFormLabel{
+    margin-bottom: 1%;
 }
