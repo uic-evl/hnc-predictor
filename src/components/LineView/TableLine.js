@@ -7,12 +7,12 @@ export const TableLine = ({
     yScale, 
     scaleOffset, 
     innerHeight,
-    dotOffset
+    dotOffset,
+    lineHeight
 }) => {
     const [xStart, xEnd] = xScale.range();
     const [, yEnd] = yScale.range();
     const ticks = xScale.ticks();
-    let height = 50
     // if(window.innerHeight <= 750){
     //     // normal laptop
     //     height = window.innerHeight - (window.innerHeight / 1.6)
@@ -25,20 +25,20 @@ export const TableLine = ({
         <g transform={`translate(0, ${innerHeight + dotOffset})`}>
                     <g className="ticks">
                         {ticks.map((t, i) => {
-                            // if(t !== 10){
+                            if(t !== 0){
                                 const x = xScale(t);
                                 return (
                                 <React.Fragment key={i}>
-                                    <line x1={x} x2={x} y1={yEnd} y2={yEnd + height} id='tbl'/>
+                                    <line x1={x} x2={x} y1={yEnd} y2={yEnd + lineHeight} id='tbl'/>
                                     <text
                                     x={x}
-                                    y={yEnd + height + scaleOffset * 5}
+                                    y={yEnd + lineHeight + scaleOffset * 5}
                                     >
                                     {t}
                                     </text>
                                 </React.Fragment>
                                 );
-                            // }
+                            }
                             
                         })}
                     </g>

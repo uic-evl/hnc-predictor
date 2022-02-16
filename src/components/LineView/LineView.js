@@ -20,7 +20,7 @@ import { TableLine } from "./TableLine"
 
 
 const width = window.innerWidth / 2
-const svgheight = window.innerHeight
+const svgheight = window.innerHeight - 50
 const height = window.innerHeight / 1.75
 
 const margin = {top:20, right:30, bottom:65, left:90} 
@@ -42,14 +42,24 @@ const legendOffset = 20
 
 const scaleOffset = 5
 const dotOffset = 30
+const lineHeight = 50
+const svgtableOffset = 20
 
-const years = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 export const LineView = ({data, time}) => {
     
     const innerHeight = height - margin.top - margin.bottom
     const innerWidth = width - margin.left - margin.right
 
+    let tableHeight = window.innerHeight - (window.innerHeight / 1.75) - lineHeight - scaleOffset - dotOffset - svgtableOffset
+
+    const mar = innerHeight + lineHeight + (scaleOffset * 2) + margin.top + margin.bottom
+
+    console.log(tableHeight)
+    const textScale = scaleLinear()
+        .domain([0, 2])
+        .range([0, tableHeight - margin.bottom - margin.top])
 
     // console.log(years)
     // console.log(time)
@@ -152,25 +162,40 @@ export const LineView = ({data, time}) => {
                             margin={margin}
                             xScale ={xScale}
                             yScale = {yScale}
-                            scaleOffset = {5}
+                            scaleOffset = {scaleOffset}
                             innerHeight={innerHeight}
                             dotOffset = {dotOffset}
+                            lineHeight={lineHeight}
                         />
-                    </g>                    
+                    {/* </g>   */}
+                    <RiskSvgTable 
+                            head={years}
+                            topic ={legend}
+                            time={time}
+                            data={data}
+                            color={color}
+                            width={width}
+                            xScale ={xScale}
+                            yScale={yScale}
+                            margin={margin}
+                            textScale = {textScale}
+                            mar = {mar}
+                    /> 
+                     </g>                  
                 </svg>
             </Col>
         
         </Row>
-        <Row>
+        {/* <Row>
             <Col md='12' style={{paddingLeft:'0px'}}>
-            {/* <TableLine 
+            <TableLine 
                     width={width}
                     margin={margin}
                     xScale ={xScale}
                     yScale = {yScale}
                     scaleOffset = {5}
                     innerHeight={innerHeight}
-                /> */}
+                />
 
                 <RiskTable
                     head={years}
@@ -180,9 +205,9 @@ export const LineView = ({data, time}) => {
                     color={color}
                 />
 
-                {/* <RiskSvgTable /> */}
+                <RiskSvgTable />
             </Col>            
-        </Row>
+        </Row> */}
     </Col>
 )
 }

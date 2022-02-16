@@ -20,7 +20,7 @@ export const Stratification = ({
     riskCalculation,
     riskRef
 }) =>{
-    console.log(patientClass)
+    // console.log(patientClass)
     const [imgSrc, setImgSrc] = useState(placeholder);
 
     const onButtonClick = () =>{
