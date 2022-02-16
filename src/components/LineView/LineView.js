@@ -20,6 +20,7 @@ import { TableLine } from "./TableLine"
 
 
 const width = window.innerWidth / 2
+const svgheight = window.innerHeight
 const height = window.innerHeight / 1.75
 
 const margin = {top:20, right:30, bottom:65, left:90} 
@@ -40,6 +41,7 @@ const legendSize = 10
 const legendOffset = 20
 
 const scaleOffset = 5
+const dotOffset = 30
 
 const years = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -105,7 +107,7 @@ export const LineView = ({data, time}) => {
                     </Modal.Footer>
                 </Modal>
 
-                <svg width={width} height={height}>
+                <svg width={width} height={svgheight}>
                     <g transform={`translate(${margin.left}, ${margin.top})`}>
 
                         <CreateBottomAxis 
@@ -144,21 +146,31 @@ export const LineView = ({data, time}) => {
                             textPaddingY={textPaddingY}
                             legend={legend}
                         />
-                    </g>
+
+                        <TableLine 
+                            width={width}
+                            margin={margin}
+                            xScale ={xScale}
+                            yScale = {yScale}
+                            scaleOffset = {5}
+                            innerHeight={innerHeight}
+                            dotOffset = {dotOffset}
+                        />
+                    </g>                    
                 </svg>
             </Col>
         
         </Row>
         <Row>
             <Col md='12' style={{paddingLeft:'0px'}}>
-            <TableLine 
+            {/* <TableLine 
                     width={width}
                     margin={margin}
                     xScale ={xScale}
                     yScale = {yScale}
                     scaleOffset = {5}
                     innerHeight={innerHeight}
-                />
+                /> */}
 
                 <RiskTable
                     head={years}

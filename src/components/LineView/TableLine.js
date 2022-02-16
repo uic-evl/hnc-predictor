@@ -6,7 +6,8 @@ export const TableLine = ({
     xScale, 
     yScale, 
     scaleOffset, 
-    innerHeight
+    innerHeight,
+    dotOffset
 }) => {
     const [xStart, xEnd] = xScale.range();
     const [, yEnd] = yScale.range();
@@ -21,10 +22,7 @@ export const TableLine = ({
     // } 
     // console.log(window.innerHeight)
     return (
-        <svg width={width} height={height} id="tableLine">
-            <g transform={`translate(${margin.left}, ${margin.top})`}>
-                {/* <g transform={`translate(0, ${innerHeight})`}> */}
-                    {/* <line className='axisLine' x1={xStart} x2={xEnd} y1={yEnd} y2={yEnd} /> */}
+        <g transform={`translate(0, ${innerHeight + dotOffset})`}>
                     <g className="ticks">
                         {ticks.map((t, i) => {
                             // if(t !== 10){
@@ -34,7 +32,7 @@ export const TableLine = ({
                                     <line x1={x} x2={x} y1={yEnd} y2={yEnd + height} id='tbl'/>
                                     <text
                                     x={x}
-                                    y={yEnd + scaleOffset * 5}
+                                    y={yEnd + height + scaleOffset * 5}
                                     >
                                     {t}
                                     </text>
@@ -44,11 +42,8 @@ export const TableLine = ({
                             
                         })}
                     </g>
-                {/* </g> */}
 
-            </g>
-
-        </svg>
+        </g>
 
     );
 }
