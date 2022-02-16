@@ -3,7 +3,7 @@ import {AiFillQuestionCircle} from 'react-icons/ai'
 
 import { useState } from "react"
 
-import { scaleLinear, scaleOrdinal } from "d3"
+import { line, scaleLinear, scaleOrdinal } from "d3"
 
 import * as d3 from 'd3'
 
@@ -47,16 +47,18 @@ const svgtableOffset = 20
 
 const years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+const tableHeight = 205;
+
 export const LineView = ({data, time}) => {
     
     const innerHeight = height - margin.top - margin.bottom
     const innerWidth = width - margin.left - margin.right
 
-    let tableHeight = window.innerHeight - (window.innerHeight / 1.75) - lineHeight - scaleOffset - dotOffset - svgtableOffset
+    // let tableHeight = window.innerHeight - (window.innerHeight / 1.75) - lineHeight - scaleOffset - dotOffset - svgtableOffset
 
     const mar = innerHeight + lineHeight + (scaleOffset * 2) + margin.top + margin.bottom
 
-    console.log(tableHeight)
+    // console.log(tableHeight)
     const textScale = scaleLinear()
         .domain([0, 2])
         .range([0, tableHeight - margin.bottom - margin.top])
@@ -180,6 +182,8 @@ export const LineView = ({data, time}) => {
                             margin={margin}
                             textScale = {textScale}
                             mar = {mar}
+                            lineHeight = {lineHeight}
+                            margin={margin}
                     /> 
                      </g>                  
                 </svg>
