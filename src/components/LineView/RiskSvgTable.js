@@ -17,13 +17,14 @@ export const RiskSvgTable = ({
     time,
     data,
     color,
-    width,
     xScale,
     yScale,
     textScale,
     mar,
     lineHeight,
-    margin
+    onHover,
+    hoverOut,
+    clnames
 }) =>{
     const [xStart, xEnd] = xScale.range();
     const [, yEnd] = yScale.range();
@@ -57,6 +58,8 @@ export const RiskSvgTable = ({
                                 width={w} 
                                 height={lineHeight + padH}
                                 fill={color(j)}
+                                onMouseEnter={() => onHover(clnames[j])}
+                                onMouseOut={() => hoverOut()}
                             />
                             <line 
                                 x1={xStart - padX - off} 

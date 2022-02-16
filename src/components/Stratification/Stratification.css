@@ -4,7 +4,8 @@
     /* margin-left: 20%; */
     margin-top: 5%;
     /* height: 70vh; */
-    /* position: relative; */
+    position: relative;
+    overflow: hidden;
 }
 
 #imageid{
@@ -16,6 +17,8 @@
 
     margin-left: auto;
     margin-right: auto;
+
+    /* object-fit: cover; */
 }
 
 #inputs{
@@ -30,14 +33,20 @@
     padding-bottom: 1%;
 }
 
-#question{
-    /* width: 14;
-    height: 14; */
-    position:absolute;
-    /* top: -7px;
-    left: 255px; */
-}
 
 #riskFormLabel{
     margin-bottom: 1%;
+}
+
+#headerText{
+    /* font-size: 80px; */
+    /* color: white; */
+    /* text-align: center; */
+    position: absolute;
+    top: 0%;
+    /* bottom: 0; */
+    left: 7%;
+    /* right: 30; */
+    /* height: fit-content; */
+    margin: auto;
 }

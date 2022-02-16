@@ -184,6 +184,9 @@ export const LineView = ({data, time}) => {
                             mar = {mar}
                             lineHeight = {lineHeight}
                             margin={margin}
+                            onHover={onHover}
+                            hoverOut={hoverOut}
+                            clnames={clnames}
                     /> 
                      </g>                  
                 </svg>

@@ -53,6 +53,11 @@ export const Stratification = ({
     const handleriskClose = () => setriskShow(false);
     const handleriskShow = () => setriskShow(true);
 
+    const [imageShow, setImageShow] = useState(false);
+
+    const handleImageShow = () => setImageShow(true);
+    const handleImageClose = () => setImageShow(false);
+
     return (
         <Col className='strat' md='4' id="stratback" style={
             {marginLeft:"1%", width:"31%"}}>
@@ -127,9 +132,28 @@ export const Stratification = ({
                     </Button>
                 {/* </Col> */}
             </Row>
-            <Row className='survivalImage'>
-                <AiFillQuestionCircle />
+            <Row className='survivalImage'>                
                 <Image src={imgSrc} id='imageid'/>
+                <AiFillQuestionCircle id="headerText" onClick={handleImageShow}/>
+
+                <Modal show={imageShow} onHide={handleImageClose}>
+                        <Modal.Header closeButton>
+                        <Modal.Title>Cohort-based Overall Survival</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            This is a visualization of survival curve separation 
+                            of patients with the low- and high-risk thresholds inputted  
+                            above. These curves are based on the MDACC training+test cohort 
+                            of 2106 head and neck cancer patients.
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={handleImageClose}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
+            </Modal>
+
+
             </Row>
             {
                 patientClass !== null && 
