@@ -69,7 +69,7 @@ export const LineView = ({data, time}) => {
         .range(["#984ea3", "#377eb8", '#d95f02'])
 
     const onHover = (val) => {
-        console.log(val)
+        // console.log(val)
         d3.selectAll('#line-plot').style('opacity', 0.2)
         d3.select(`.${val}`).style('opacity', 1)
         
