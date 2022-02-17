@@ -4,7 +4,7 @@ import { Form, Col, Row, InputGroup, FormControl, Button, Image, Modal} from "re
 import * as d3 from 'd3'
 import './Stratification.css'
 
-let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/OS/OS_LT5_UT20.jpg'
+let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/OS/OS_LT5_UT25.jpg'
 // let perc = null;
 // let risk = null;
 export const Stratification = ({
