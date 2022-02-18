@@ -208,7 +208,7 @@ function App() {
       {data:val}
     ).then((response) => {
       // console.log("connection created")
-      console.log(response.data[0])
+      console.log(response.data)
 
       stage_new = response.data[0]
       stage_new_7th = response.data[1]
