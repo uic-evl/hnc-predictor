@@ -10,10 +10,10 @@ from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
 # from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
 # from rpy2.robjects import pandas2ri
 
-import os
+# import os
 # os.environ['R_HOME'] = 'C:/Users/nafiu/anaconda3/envs/lancet/Scripts/R.exe'
 
-ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app = Flask(__name__)
 
 CORS(app)
@@ -78,5 +78,4 @@ def backend():
 
 
 if __name__ == '__main__':
-    context = ('local.crt', 'local.key')
-    app.run(debug=False, ssl_context=context, host='131.193.78.172', port=8080)
+    app.run(debug=False, host='131.193.78.172', port=8080)
