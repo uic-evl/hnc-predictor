@@ -1,6 +1,6 @@
 {
-  "homepage": "https://nafiul-nipu.github.io/lanet-interface",
-  "name": "lanet-interface",
+  "homepage": "https://nafiul-nipu.github.io/lancet-interface",
+  "name": "lancet-interface",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
