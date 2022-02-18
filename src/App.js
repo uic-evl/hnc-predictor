@@ -203,8 +203,8 @@ function App() {
     // console.log(defaultVal)
     console.log(val)
     post(
-      // 'http://131.193.78.149:8080/backend',
-      'http://127.0.0.1:8080/backend',
+      'http://131.193.78.172:8080/backend',
+      // 'http://127.0.0.1:8080/backend',
       {data:val}
     ).then((response) => {
       // console.log("connection created")
