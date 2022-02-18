@@ -201,14 +201,14 @@ function App() {
       "HPV.P16.status" : hpvRef.current.value
     }
     // console.log(defaultVal)
-    console.log(val)
+    // console.log(val)
     post(
       'https://risk-calculator.evl.uic.edu:8080/backend',
       // 'http://127.0.0.1:8080/backend',
       {data:val}
     ).then((response) => {
       // console.log("connection created")
-      console.log(response.data)
+      // console.log(response.data)
 
       stage_new = response.data[0]
       stage_new_7th = response.data[1]
