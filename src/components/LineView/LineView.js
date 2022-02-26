@@ -19,9 +19,7 @@ import { TableLine } from "./TableLine"
 
 
 
-const width = window.innerWidth / 2
-const svgheight = window.innerHeight - 50
-const height = window.innerHeight / 1.75
+
 
 const margin = {top:20, right:30, bottom:65, left:90} 
 
@@ -49,7 +47,13 @@ const years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const tableHeight = 205;
 
-export const LineView = ({data, time}) => {
+export const LineView = ({data, time, windowHeight, windowWidth}) => {
+
+    const width = windowWidth / 2
+    const svgheight = windowHeight - 50
+    const height = windowHeight / 1.75
+
+    // console.log(windowWidth,windowHeight)
     
     const innerHeight = height - margin.top - margin.bottom
     const innerWidth = width - margin.left - margin.right

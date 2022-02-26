@@ -69,7 +69,7 @@ export const RiskSvgTable = ({
                                 stroke={'black'} 
                                 strokeWidth={strokeWidth}
                             />
-                            <text x={xStart} y={xx} font-size='1em' text-anchor='middle' role="row"> 
+                            <text x={xStart} y={xx} fontSize='1em' textAnchor='middle' role="row"> 
                                 {
 
                                     head.map((t, i) => {

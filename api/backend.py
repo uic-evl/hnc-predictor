@@ -78,4 +78,4 @@ def backend():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='131.193.78.172', port=8080)
+    app.run(debug=False, host='127.0.0.1', port=8080)

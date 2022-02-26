@@ -50,3 +50,8 @@
     /* height: fit-content; */
     margin: auto;
 }
+
+.btn:focus{
+    outline: none !important;
+    box-shadow: none;
+ }

@@ -127,6 +127,7 @@ export const Stratification = ({
                         size="sm"
                         onClick={onButtonClick}
                         style={{width: '15%', marginLeft: '56%'}}
+                        id="stratButton"
                     >
                         Submit
                     </Button>
