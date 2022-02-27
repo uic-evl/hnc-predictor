@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { AiFillQuestionCircle } from "react-icons/ai"
 import { Form, Col, Row, InputGroup, FormControl, Button, Image, Modal} from "react-bootstrap"
-import * as d3 from 'd3'
+import * as $ from 'jquery'
 import './Stratification.css'
 
 let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/OS/OS_LT5_UT25.jpg'
@@ -29,6 +29,7 @@ export const Stratification = ({
     }
 
     const handleChange = () =>{
+        
         console.log(riskRef.current.value)
         console.log(upRef.current.value)
         console.log(lowRef.current.value)
@@ -38,8 +39,22 @@ export const Stratification = ({
         let upper = upRef.current.value;
 
         let imageUrl = `https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/${folder}/OS_LT${lower}_UT${upper}.jpg`;
+        
 
-        setImgSrc(imageUrl)
+        $('#imageid').fadeOut('fast');
+        $('#imageid').fadeIn("slow");
+        setImgSrc(imageUrl);
+        
+        
+
+        // $('#imageid').fadeOut('slow', function(){
+            
+        //     setImgSrc(imageUrl);
+        //     $('#imageid').fadeIn("slow");
+            
+        // })
+
+        // setImgSrc(imageUrl)
     }
 
     const [show, setShow] = useState(false);
