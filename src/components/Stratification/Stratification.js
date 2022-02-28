@@ -40,19 +40,10 @@ export const Stratification = ({
 
         let imageUrl = `https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/${folder}/OS_LT${lower}_UT${upper}.jpg`;
         
-
-        $('#imageid').fadeOut('fast');
+        setImgSrc(imageUrl)
+        $('#imageid').fadeOut('fast')
         $('#imageid').fadeIn("slow");
-        setImgSrc(imageUrl);
         
-        
-
-        // $('#imageid').fadeOut('slow', function(){
-            
-        //     setImgSrc(imageUrl);
-        //     $('#imageid').fadeIn("slow");
-            
-        // })
 
         // setImgSrc(imageUrl)
     }
