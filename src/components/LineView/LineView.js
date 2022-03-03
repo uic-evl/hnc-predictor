@@ -39,7 +39,7 @@ const legendSize = 10
 const legendOffset = 20
 
 const scaleOffset = 5
-const dotOffset = 30
+const dotOffset = 10
 const lineHeight = 50
 const svgtableOffset = 20
 
@@ -60,7 +60,7 @@ export const LineView = ({data, time, windowHeight, windowWidth}) => {
 
     // let tableHeight = window.innerHeight - (window.innerHeight / 1.75) - lineHeight - scaleOffset - dotOffset - svgtableOffset
 
-    const mar = innerHeight + lineHeight + (scaleOffset * 2) + margin.top + margin.bottom
+    const mar = innerHeight + lineHeight + (scaleOffset * 2)  + margin.bottom
 
     // console.log(tableHeight)
     const textScale = scaleLinear()
