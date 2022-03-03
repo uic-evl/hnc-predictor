@@ -29,7 +29,7 @@ export const TableLine = ({
                                 const x = xScale(t);
                                 return (
                                 <React.Fragment key={i}>
-                                    <line x1={x} x2={x} y1={yEnd} y2={yEnd + lineHeight} id='tbl'/>
+                                    {/* <line x1={x} x2={x} y1={yEnd} y2={yEnd + lineHeight} id='tbl'/> */}
                                     <text
                                     x={x}
                                     y={yEnd + lineHeight + scaleOffset * 5}

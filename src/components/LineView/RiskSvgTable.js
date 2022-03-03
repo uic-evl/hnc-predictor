@@ -7,7 +7,7 @@ const padX = 82
 const padY = 30
 const padX2 = 20
 const strokeWidth = 1
-const padW = 4
+const padW = 3
 const padH = 8
 const scaleOffset = 2
 const off = 10
@@ -38,7 +38,7 @@ export const RiskSvgTable = ({
 
     let w = (xScale(ticks[0]) + padY + 2) - (xStart - padX - off)
 
-    // console.log(w)
+    
     const [xxStart, xxEnd] = textScale.range()
 
     return (
@@ -57,7 +57,7 @@ export const RiskSvgTable = ({
                                 y={xx - padY} 
                                 width={w} 
                                 height={lineHeight + padH}
-                                fill={color(j)}
+                                fill={"white"}
                                 onMouseEnter={() => onHover(clnames[j])}
                                 onMouseOut={() => hoverOut()}
                             />
@@ -80,6 +80,10 @@ export const RiskSvgTable = ({
                                                     <tspan
                                                     x={x - padX2 - 10}
                                                     role='cell'
+                                                    stroke="black"
+                                                    strokeWidth={0.5}
+                                                    onMouseEnter={() => onHover(clnames[j])}
+                                                    onMouseOut={() => hoverOut()}
                                                     >
                                                     {tt}
                                                     </tspan>
@@ -123,10 +127,24 @@ export const RiskSvgTable = ({
                     stroke={'black'}
                     strokeWidth={strokeWidth}
                 /> 
+                <text
+                    className='axis-label'
+                    x={xScale(5)}
+                    y={xxEnd + padH + lineHeight - off}
+                    textAnchor='middle'
+                >{`Overall Survival Probability (%)`}</text>
                 {/* <rect x='25' y='40' width='310' height='20' fill='gainsboro'/>
                 <rect x='25' y='76' width='310' height='20' fill='gainsboro'/> */}
 
                 <g>
+                    <line 
+                        x1={- xScale(0) - padX - off + padW} 
+                        x2={- xScale(0) - padX - off + padW} 
+                        y1={xxStart - padY} 
+                        y2={xxEnd + padH + lineHeight - padY}
+                        stroke={'black'}
+                        strokeWidth={strokeWidth}
+                    />
                     {ticks.map((t, i) => {
                         const x = xScale(t);
                         if( i === 0){

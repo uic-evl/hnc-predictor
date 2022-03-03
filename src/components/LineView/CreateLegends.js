@@ -20,14 +20,14 @@ export const CreateLegends = ({
         >
             <rect
                 x = {(innerWidth - margin.right - margin.left)}
-                y = {legendOffset * i}
+                y = {legendOffset * i - 10}
                 width = {legendSize}
                 height = {legendSize}
                 fill = {color(i)}
             />
             <text
                 x = {textPaddingX + (innerWidth - margin.right - margin.left)}
-                y = {textPaddingY + (legendOffset * i)}
+                y = {textPaddingY + (legendOffset * i) - 10}
             >
                 {`${legend[i]}`}
             </text>

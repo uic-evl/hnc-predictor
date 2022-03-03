@@ -32,7 +32,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id="space">
         <Form.Label>Age</Form.Label>
-        <Form.Select defaultValue=">75" ref={ageRef} id="indent">
+        <Form.Select defaultValue="65-75" ref={ageRef} id="indent">
           <option value='<55'> &#60; 55 </option>
           <option value='55-65'> 55 - 65 </option>
           <option value='65-75'> 65 - 75 </option>
@@ -51,7 +51,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Pack Years</Form.Label>
-        <Form.Select defaultValue=">50" ref={packRef} id="indent">
+        <Form.Select defaultValue="25-50" ref={packRef} id="indent">
           <option value='<5'> &#60; 5 </option>
           <option value='5-25'> 5 - 25</option>
           <option value='25-50'> 25 - 50 </option>
@@ -63,7 +63,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Tumor Site</Form.Label>
-        <Form.Select defaultValue="Hypopharynx" ref={siteRef} id="indent">
+        <Form.Select defaultValue="OPC" ref={siteRef} id="indent">
           <option value='OPC'> OPC </option>
           <option value='Hypopharynx'> Hypopharynx </option>
           <option value='Oral Cavity'> Oral Cavity </option>
@@ -145,6 +145,7 @@ export   const FormView = ({
           id={`inline-radio-3`}
           value="T3"
           onChange={tRef}
+          defaultChecked
         />
 
         <Form.Check

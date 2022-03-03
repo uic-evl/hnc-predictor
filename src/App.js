@@ -204,8 +204,8 @@ function App() {
     // console.log(defaultVal)
     // console.log(val)
     post(
-      'https://risk-calculator.evl.uic.edu:8080/backend',
-      // 'http://127.0.0.1:8080/backend',
+      // 'https://risk-calculator.evl.uic.edu:8080/backend',
+      'http://127.0.0.1:8080/backend',
       {data:val}
     ).then((response) => {
       // console.log("connection created")
