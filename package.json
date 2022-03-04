@@ -1,6 +1,6 @@
 {
-  "homepage": "http://nafiul-nipu.github.io/lancet-interface",
-  "name": "lancet-interface",
+  "homepage": "https://uic-evl.github.io/hnc-predictor/",
+  "name": "hnc-predictor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
