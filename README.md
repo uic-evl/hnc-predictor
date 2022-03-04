@@ -1,4 +1,4 @@
-# Prototype Interface
+# Interface
 ![Prototype](https://raw.githubusercontent.com/uic-evl/hnc-predictor/master/hnc-predictor-interface.PNG)
 
 

@@ -4,7 +4,7 @@ import { Form, Col, Row, InputGroup, FormControl, Button, Image, Modal} from "re
 import * as $ from 'jquery'
 import './Stratification.css'
 
-let placeholder = 'https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/OS/OS_LT5_UT25.jpg'
+let placeholder = 'https://raw.githubusercontent.com/uic-evl/hnc-predictor/master/src/images/OS/OS_LT5_UT25.jpg'
 // let perc = null;
 // let risk = null;
 export const Stratification = ({
@@ -38,7 +38,7 @@ export const Stratification = ({
         let lower = lowRef.current.value;
         let upper = upRef.current.value;
 
-        let imageUrl = `https://raw.githubusercontent.com/nafiul-nipu/lanet-interface/master/src/images/${folder}/OS_LT${lower}_UT${upper}.jpg`;
+        let imageUrl = `https://raw.githubusercontent.com/uic-evl/hnc-predictor/master/src/images/${folder}/OS_LT${lower}_UT${upper}.jpg`;
         
         setImgSrc(imageUrl)
         $('#imageid').fadeOut('fast')
