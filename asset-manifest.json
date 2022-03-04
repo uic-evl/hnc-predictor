@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/hnc-predictor/static/css/main.9fe8a9f1.chunk.css",
+    "main.js": "/hnc-predictor/static/js/main.72cb7bc4.chunk.js",
+    "main.js.map": "/hnc-predictor/static/js/main.72cb7bc4.chunk.js.map",
+    "runtime-main.js": "/hnc-predictor/static/js/runtime-main.df2c46b6.js",
+    "runtime-main.js.map": "/hnc-predictor/static/js/runtime-main.df2c46b6.js.map",
+    "static/css/2.818011ed.chunk.css": "/hnc-predictor/static/css/2.818011ed.chunk.css",
+    "static/js/2.342dd1b8.chunk.js": "/hnc-predictor/static/js/2.342dd1b8.chunk.js",
+    "static/js/2.342dd1b8.chunk.js.map": "/hnc-predictor/static/js/2.342dd1b8.chunk.js.map",
+    "static/js/3.8f4191c1.chunk.js": "/hnc-predictor/static/js/3.8f4191c1.chunk.js",
+    "static/js/3.8f4191c1.chunk.js.map": "/hnc-predictor/static/js/3.8f4191c1.chunk.js.map",
+    "index.html": "/hnc-predictor/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/hnc-predictor/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.9fe8a9f1.chunk.css.map": "/hnc-predictor/static/css/main.9fe8a9f1.chunk.css.map",
+    "static/js/2.342dd1b8.chunk.js.LICENSE.txt": "/hnc-predictor/static/js/2.342dd1b8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df2c46b6.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.342dd1b8.chunk.js",
+    "static/css/main.9fe8a9f1.chunk.css",
+    "static/js/main.72cb7bc4.chunk.js"
+  ]
+}
