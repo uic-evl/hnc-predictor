@@ -1,5 +1,5 @@
 # Prototype Interface
-![Prototype](https://raw.githubusercontent.com/uic-evl/hnc-predictor/master/hnc-predictor interface.PNG)
+![Prototype](https://raw.githubusercontent.com/uic-evl/hnc-predictor/master/hnc-predictor-interface.PNG)
 
 
 
