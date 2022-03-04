@@ -155,6 +155,7 @@ export const LineView = ({data, time, windowHeight, windowWidth}) => {
                             onHover={onHover}
                             hoverOut={hoverOut}
                             innerWidth={innerWidth}
+                            innerHeight={innerHeight}
                             margin = {margin}
                             legendOffset={legendOffset}
                             legendSize={legendSize}

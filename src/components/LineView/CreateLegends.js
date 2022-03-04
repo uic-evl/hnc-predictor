@@ -3,6 +3,7 @@ export const CreateLegends = ({
     clnames,
     hoverOut,
     innerWidth,
+    innerHeight,
     margin,
     legendOffset,
     legendSize,
@@ -15,18 +16,19 @@ export const CreateLegends = ({
     return(
         <g
             className='legend'
+            transform={`translate(0, ${innerHeight - margin.bottom})`}
             onMouseEnter={() => onHover(clnames[i])}
             onMouseOut = {() => hoverOut()}
         >
             <rect
-                x = {(innerWidth - margin.right - margin.left)}
+                x = {(margin.right)}
                 y = {legendOffset * i - 10}
                 width = {legendSize}
                 height = {legendSize}
                 fill = {color(i)}
             />
             <text
-                x = {textPaddingX + (innerWidth - margin.right - margin.left)}
+                x = {textPaddingX + (margin.right)}
                 y = {textPaddingY + (legendOffset * i) - 10}
             >
                 {`${legend[i]}`}

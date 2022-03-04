@@ -11,6 +11,7 @@ export const CreateLinePlots = ({
     onHover,
     hoverOut,
     innerWidth,
+    innerHeight,
     margin,
     legendOffset,
     legendSize,
@@ -41,6 +42,7 @@ export const CreateLinePlots = ({
                     clnames={clnames}
                     hoverOut={hoverOut}
                     innerWidth={innerWidth}
+                    innerHeight={innerHeight}
                     margin={margin}
                     legendOffset={legendOffset}
                     legendSize={legendSize}

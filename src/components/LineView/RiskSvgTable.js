@@ -127,19 +127,54 @@ export const RiskSvgTable = ({
                     stroke={'black'}
                     strokeWidth={strokeWidth}
                 /> 
-                <text
-                    className='axis-label'
-                    x={xScale(5)}
-                    y={xxEnd + padH + lineHeight - off}
-                    textAnchor='middle'
-                >{`Overall Survival Probability (%)`}</text>
+                <g>
+                    <line 
+                            x1={xStart + padY + scaleOffset + off} 
+                            x2={xStart + padY + scaleOffset + off} 
+                            y1={xxEnd + padH + lineHeight + 2 - padY} 
+                            y2={xxEnd + padH + lineHeight + off - padY}
+                            stroke={'black'}
+                            strokeWidth={strokeWidth * 1.5}
+                        />
+                    <line 
+                        x1={xEnd + padX2} 
+                        x2={xEnd + padX2} 
+                        y1={xxEnd + padH + lineHeight + 2 - padY} 
+                        y2={xxEnd + padH + lineHeight + off - padY}
+                        stroke={'black'}
+                        strokeWidth={strokeWidth * 1.5}
+                    />
+                    <line 
+                        x1={xStart + padY + scaleOffset + off} 
+                        x2={xEnd + padX2 } 
+                        y1={xxEnd + padH + lineHeight + off - padY} 
+                        y2={xxEnd + padH + lineHeight + off - padY}  
+                        stroke={'black'}
+                        strokeWidth={strokeWidth * 1.5}
+                    /> 
+                    <line 
+                        x1={xScale(4) + padY - scaleOffset} 
+                        x2={xScale(4) + padY - scaleOffset} 
+                        y1={xxEnd + padH + lineHeight + off - padY} 
+                        y2={xxEnd + padH + lineHeight - 10 }
+                        stroke={'black'}
+                        strokeWidth={strokeWidth * 1.5}
+                    />
+
+                    <text
+                        className='axis-label'
+                        x={xScale(5) - 15}
+                        y={xxEnd + padH + lineHeight + 7}
+                        textAnchor='middle'
+                    >{`Overall Survival Probability (%)`}</text>
+                </g>
                 {/* <rect x='25' y='40' width='310' height='20' fill='gainsboro'/>
-                <rect x='25' y='76' width='310' height='20' fill='gainsboro'/> */}
+                <rect x='25' y='76' width='310' height='20' fill='gainsboro'/> */}                
 
                 <g>
                     <line 
-                        x1={- xScale(0) - padX - off + padW} 
-                        x2={- xScale(0) - padX - off + padW} 
+                        x1={- xStart - padX - off + padW} 
+                        x2={- xStart - padX - off + padW} 
                         y1={xxStart - padY} 
                         y2={xxEnd + padH + lineHeight - padY}
                         stroke={'black'}
