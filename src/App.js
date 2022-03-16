@@ -31,47 +31,20 @@ let nRef = "N2c";
 
 function App() {
   const size = useWindowResize();
+
   const ageRef = React.createRef();
   const perfScoreRef = React.createRef();
   const packRef = React.createRef();
   const siteRef = React.createRef();
-  // let tlcRef = "T4";
-  // let tRef = "T4";
-  // let nRef = "N2c";
   const hpvRef = React.createRef();
-
   const riskRef = React.createRef();
 
   let lowRef = React.createRef()
   let upRef = React.createRef()
 
-  // const defaultVal = {
-  //   "AGE": ">75",
-  //   "Performance_score": "0",
-  //   "pack_years": ">50",
-  //   "site" : "Hypopharynx",
-  //   "T_stage_LC" : "T4",
-  //   "T_stage" : "T4",
-  //   "N_stage" : "N2",
-  //   "HPV.P16.status" : "Positive"
-  // };
-
   const [prediction, setPrediction] = useState(null)
-
   const [patientClass, setPatientClass] = useState(null)
-
-  // const [overallRisk, setOverallRisk] = useState(null);
-  // const [overallPerc, setOverallPerc] = useState(null);
-
-  // const [localRisk, setLocalRisk] = useState(null);
-  // const [localPerc, setLocalPerc] = useState(null);
-
-  // const [regionalRisk, setRegionalRisk] = useState(null);
-  // const [regionalPerc, setRegionalPerc] = useState(null);
-
-  // const onTLChange = (event) =>{
-  //   tlcRef = event.target.value;
-  // }
+  const [ajccStage, setAjccStage] = useState('III')
 
   const riskCalculation = () => {
     let riskValues = {}
@@ -86,99 +59,52 @@ function App() {
         up = upRef.current.value;     
   
       }
-  
-      // console.log(low)
-      // console.log(up)
-  
-  
-      // console.log(prediction)
-      // console.log(prediction[1][0])
-      let overallSurv = prediction[0][0]
-  
-      let twoYearOverall = overallSurv[yearIndex] * 100
-      // twoYear = twoYear.toFixed(2);
-  
+      let overallSurv = prediction[0][0]  
+      let twoYearOverall = overallSurv[yearIndex] * 100  
       let overallMortality = Math.round(100 - twoYearOverall);
   
       if (overallMortality < low){
-          // setOverallRisk('Low')
-          // risk = 'Low'
           riskValues.overallRisk = 'Low'
       }else if(overallMortality >= low && overallMortality <= up){
-          // setOverallRisk('Intermediate')
-          // risk = 'Intermediate'
           riskValues.overallRisk = 'Intermediate'
       }else{
-          // setOverallRisk('High')
-          // risk = 'High'
           riskValues.overallRisk = 'High'
       }
-  
-      // setOverallPerc(overallMortality.toFixed(2))
-      // riskValues.overallPerc = overallMortality.toFixed(2)
+
       riskValues.overallPerc = overallMortality
   
-      let localServ = prediction[1][0]
-  
+      let localServ = prediction[1][0]  
       let twoYearLocal = localServ[yearIndex] * 100
-      // twoYear = twoYear.toFixed(2);
-  
       let localMortality = Math.round(100 - twoYearLocal);
   
       if (localMortality < low){
-          // setLocalRisk('Low')
-          // risk = 'Low'
           riskValues.localRisk = 'Low'
       }else if(localMortality >= low && localMortality <= up){
-          // setLocalRisk('Intermediate')
-          // risk = 'Intermediate'
           riskValues.localRisk = 'Intermediate'
       }else{
-          // setLocalRisk('High')
-          // risk = 'High'
           riskValues.localRisk = 'High'
       }
   
-      // setLocalPerc(localMortality.toFixed(2))
-      // riskValues.localPerc = localMortality.toFixed(2)
       riskValues.localPerc = localMortality
 
-      let regionalSurv = prediction[2][0]
-  
+      let regionalSurv = prediction[2][0]  
       let twoYearRegional = regionalSurv[yearIndex] * 100
-      // twoYear = twoYear.toFixed(2);
-  
       let regionalMortality = Math.round(100 - twoYearRegional);
   
       if (regionalMortality < low){
-          // setRegionalRisk('Low')
-          // risk = 'Low'
           riskValues.regionalRisk = 'Low'
       }else if(regionalMortality >= low && regionalMortality <= up){
-          // setRegionalRisk('Intermediate')
-          // risk = 'Intermediate'
           riskValues.regionalRisk = 'Intermediate'
       }else{
-          // setRegionalRisk('High')
-          // risk = 'High'
           riskValues.regionalRisk = 'High'
       }
-  
-      // setRegionalPerc(regionalMortality.toFixed(2))
-      // riskValues.regionalPerc = regionalMortality.toFixed(2)
+
       riskValues.regionalPerc = regionalMortality;
-      // console.log('up', up)
-      // console.log('low', low)
-      // console.log('risk', risk)
-      // console.log('mortality', mortality)
-      // console.log('twoYear', twoYear)
 
       setPatientClass(riskValues)
     }
 
 }
-
-
   const onTChange = (event) =>{
     tRef = event.target.value;
     // console.log(tRef)
@@ -201,29 +127,32 @@ function App() {
       "N_stage" : nRef,
       "HPV.P16.status" : hpvRef.current.value
     }
-    // console.log(defaultVal)
-    // console.log(val)
     post(
-      'https://risk-calculator.evl.uic.edu:8080/backend',
-      // 'http://127.0.0.1:8080/backend',
+      // 'https://risk-calculator.evl.uic.edu:8080/backend',
+      'http://127.0.0.1:8080/backend',
       {data:val}
     ).then((response) => {
-      // console.log("connection created")
-      // console.log(response.data)
 
       stage_new = response.data[0]
       stage_new_7th = response.data[1]
+      // console.log(stage_new, stage_new_7th)
 
       let predData = [response.data[2], response.data[3], response.data[4]]
 
       setPrediction(predData)
 
-      // riskCalculation()
-
     }).catch((error) => {
       console.log(error)
     });
 
+  }
+
+  const updateAjccStage = () =>{
+    console.log("update ajcc stage called")
+    console.log(tRef, nRef)
+    let site = siteRef.current.value;
+    let hpv = hpvRef.current.value;
+    setAjccStage('IV')
   }
 
   useEffect(() => {
@@ -246,8 +175,8 @@ function App() {
           tRef = {onTChange}
           nRef = {onNChange}
           hpvRef = {hpvRef}
-          stage = {stage_new}
-          stage7 = {stage_new_7th}
+          stage = {ajccStage}
+          stageUpdate = {updateAjccStage}
           riskCalculation={riskCalculation}
         />
       </Row>
@@ -270,8 +199,8 @@ function App() {
         tRef = {onTChange}
         nRef = {onNChange}
         hpvRef = {hpvRef}
-        stage = {stage_new}
-        stage7 = {stage_new_7th}
+        stage = {ajccStage}
+        stageUpdate = {updateAjccStage}
         riskCalculation={riskCalculation}
       />
       <LineView 

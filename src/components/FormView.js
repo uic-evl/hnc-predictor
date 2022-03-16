@@ -16,7 +16,7 @@ export   const FormView = ({
   nRef, 
   hpvRef,
   stage,
-  stage7
+  stageUpdate
 }) =>{
   const [ajccShow, setajccShow] = useState(false);
 
@@ -71,49 +71,6 @@ export   const FormView = ({
           <option value='Nasopharynx'> Nasopharynx </option>
         </Form.Select>
       </Form.Group>
-
-      {/* <Form.Group id='space'>
-        <Form.Label>T Stage LC</Form.Label>
-        <br/>
-        <Form.Check
-          inline
-          label="T1"
-          name="TLCGroup"
-          type="radio"
-          id={`inline-radio-1`}
-          value="T1"
-          onChange={tlcRef}
-        />
-        <Form.Check
-          inline
-          label="T2"
-          name="TLCGroup"
-          type="radio"
-          id={`inline-radio-2`}
-          value="T2"
-          onChange={tlcRef}
-        />
-        <Form.Check
-          inline
-          label="T3"
-          name="TLCGroup"
-          type="radio"
-          id={`inline-radio-3`}
-          value="T3"
-          onChange={tlcRef}
-        />
-
-        <Form.Check
-          inline
-          label="T4"
-          name="TLCGroup"
-          type="radio"
-          id={`inline-radio-4`}
-          value="T4"
-          onChange={tlcRef}
-          defaultChecked
-        />
-      </Form.Group> */}
 
       <Form.Group >
         <Form.Label id='space'>T Stage</Form.Label>
@@ -219,7 +176,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>HPV Status</Form.Label>
-        <Form.Select defaultValue="Positive" ref={hpvRef} id="indent">
+        <Form.Select defaultValue="Positive" ref={hpvRef} id="indent" onChange={stageUpdate}>
           <option value='Positive'> Positive </option>
           <option value='Negative'>Negative</option>
         </Form.Select>
