@@ -108,10 +108,12 @@ function App() {
   const onTChange = (event) =>{
     tRef = event.target.value;
     // console.log(tRef)
+    updateAjccStage()
   }
   const onNChange = (event) =>{
     nRef = event.target.value;
     // console.log(nRef)
+    updateAjccStage()
   }
 
 
@@ -150,11 +152,52 @@ function App() {
   const updateAjccStage = () =>{
     console.log("update ajcc stage called")
     console.log(tRef, nRef)
+    // console.log([1].includes(1))
     let site = siteRef.current.value;
     let hpv = hpvRef.current.value;
-    setAjccStage('IV')
+    console.log(site, hpv)
+    if(site == 'OPC' && hpv == 'Positive'){
+      if(['T0', 'T1', 'T2', 'Tx'].includes(tRef) && ['N0', 'N1', 'N2a-b'].includes(nRef)){
+        setAjccStage('I')
+      }else if(['T0', 'T1', 'T2', 'Tx'].includes(tRef) && ['N2c'].includes(nRef)){
+        setAjccStage('II')
+      }else if(['T3'].includes(tRef) && ['N0', 'N1', 'N2a-b', 'N2c'].includes(nRef)){
+        setAjccStage('II')
+      }else if(['T4'].includes(tRef) || ['N3'].includes(nRef)){
+        setAjccStage('III')
+      }
+    }else if((site = 'OPC' && hpv == 'Negative') || ["Oral Cavity","Hypopharynx","Larynx"].includes(site)){
+      if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
+        setAjccStage('I')
+      }else if(['T2'].includes(tRef) && ['N0'].includes(nRef)){
+        setAjccStage('II')
+      }else if(['T1', 'T2', 'Tx'].includes(tRef) && ['N1'].includes(nRef)){
+        setAjccStage('III')
+      }else if(['T3'].includes(tRef) && ['N0','N1'].includes(nRef)){
+        setAjccStage('III')
+      }else if(['T4'].includes(tRef) || ['N2a-b','N2c'].includes(nRef)){
+        setAjccStage('IVa')
+      }else if(['N3'].includes(nRef)){
+        setAjccStage('IVb')
+      }
+    }else if(site = 'Nasopharynx'){
+      if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
+        setAjccStage('I')
+      }else if(['T0', 'T1', 'Tx'].includes(tRef) && ['N1'].includes(nRef)){
+        setAjccStage('I')
+      }else if(['T2'].includes(tRef) && ['N0', 'N1'].includes(nRef)){
+        setAjccStage('II')
+      }else if(['T0', 'T1', 'Tx'].includes(tRef) && ['N2a-b', 'N2c'].includes(nRef)){
+        setAjccStage('III')
+      }else if(['T2', 'T3'].includes(tRef) && ['N2a-b', 'N2c'].includes(nRef)){
+        setAjccStage('III')
+      }else if(['T3'].includes(tRef) && ['N0', 'N1'].includes(nRef)){
+        setAjccStage('III')
+      }else if(['T4'].includes(tRef) || ['N3'].includes(nRef)){
+        setAjccStage('IVa')
+      }
+    }
   }
-
   useEffect(() => {
     riskCalculation();
   }, [prediction])

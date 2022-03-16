@@ -63,7 +63,7 @@ export   const FormView = ({
 
       <Form.Group controlId="formGridState" id='space'>
         <Form.Label>Tumor Site</Form.Label>
-        <Form.Select defaultValue="OPC" ref={siteRef} id="indent">
+        <Form.Select defaultValue="OPC" ref={siteRef} id="indent" onChange={stageUpdate}>
           <option value='OPC'> OPC </option>
           <option value='Hypopharynx'> Hypopharynx </option>
           <option value='Oral Cavity'> Oral Cavity </option>
