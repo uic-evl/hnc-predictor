@@ -188,7 +188,7 @@ export const LineView = ({data, time, windowHeight, windowWidth}) => {
                             textScale = {textScale}
                             mar = {mar}
                             lineHeight = {lineHeight}
-                            margin={margin}
+                            // margin={margin}
                             onHover={onHover}
                             hoverOut={hoverOut}
                             clnames={clnames}

@@ -130,14 +130,14 @@ function App() {
       "HPV.P16.status" : hpvRef.current.value
     }
     post(
-      // 'https://risk-calculator.evl.uic.edu:8080/backend',
-      'http://127.0.0.1:8080/backend',
+      'https://risk-calculator.evl.uic.edu:8080/backend',
+      // 'http://127.0.0.1:8080/backend',
       {data:val}
     ).then((response) => {
 
       stage_new = response.data[0]
       stage_new_7th = response.data[1]
-      // console.log(stage_new, stage_new_7th)
+      // console.log(stage_new)
 
       let predData = [response.data[2], response.data[3], response.data[4]]
 
@@ -150,13 +150,13 @@ function App() {
   }
 
   const updateAjccStage = () =>{
-    console.log("update ajcc stage called")
-    console.log(tRef, nRef)
+    // console.log("update ajcc stage called")
+    // console.log(tRef, nRef)
     // console.log([1].includes(1))
     let site = siteRef.current.value;
     let hpv = hpvRef.current.value;
-    console.log(site, hpv)
-    if(site == 'OPC' && hpv == 'Positive'){
+    // console.log(site, hpv)
+    if(site === 'OPC' && hpv === 'Positive'){
       if(['T0', 'T1', 'T2', 'Tx'].includes(tRef) && ['N0', 'N1', 'N2a-b'].includes(nRef)){
         setAjccStage('I')
       }else if(['T0', 'T1', 'T2', 'Tx'].includes(tRef) && ['N2c'].includes(nRef)){
@@ -166,7 +166,7 @@ function App() {
       }else if(['T4'].includes(tRef) || ['N3'].includes(nRef)){
         setAjccStage('III')
       }
-    }else if((site = 'OPC' && hpv == 'Negative') || ["Oral Cavity","Hypopharynx","Larynx"].includes(site)){
+    }else if((site === 'OPC' && hpv === 'Negative') || ["Oral Cavity","Hypopharynx","Larynx"].includes(site)){
       if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
         setAjccStage('I')
       }else if(['T2'].includes(tRef) && ['N0'].includes(nRef)){
@@ -180,11 +180,11 @@ function App() {
       }else if(['N3'].includes(nRef)){
         setAjccStage('IVb')
       }
-    }else if(site = 'Nasopharynx'){
+    }else if(site === 'Nasopharynx'){
       if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
         setAjccStage('I')
       }else if(['T0', 'T1', 'Tx'].includes(tRef) && ['N1'].includes(nRef)){
-        setAjccStage('I')
+        setAjccStage('II')
       }else if(['T2'].includes(tRef) && ['N0', 'N1'].includes(nRef)){
         setAjccStage('II')
       }else if(['T0', 'T1', 'Tx'].includes(tRef) && ['N2a-b', 'N2c'].includes(nRef)){
@@ -195,6 +195,14 @@ function App() {
         setAjccStage('III')
       }else if(['T4'].includes(tRef) || ['N3'].includes(nRef)){
         setAjccStage('IVa')
+      }
+    }else if(site=== 'unknown_primary'){
+      if(['N1', 'N2a-b'].includes(nRef)){
+        setAjccStage('III')
+      }else if(['N2c'].includes(nRef)){
+        setAjccStage('IVa')
+      }else if(['N3'].includes(nRef)){
+        setAjccStage('IVb')
       }
     }
   }
