@@ -167,7 +167,9 @@ function App() {
         setAjccStage('III')
       }
     }else if((site === 'OPC' && hpv === 'Negative') || ["Oral Cavity","Hypopharynx","Larynx"].includes(site)){
-      if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
+      if(['N3'].includes(nRef)){
+        setAjccStage('IVb')
+      }else if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
         setAjccStage('I')
       }else if(['T2'].includes(tRef) && ['N0'].includes(nRef)){
         setAjccStage('II')
@@ -177,8 +179,6 @@ function App() {
         setAjccStage('III')
       }else if(['T4'].includes(tRef) || ['N2a-b','N2c'].includes(nRef)){
         setAjccStage('IVa')
-      }else if(['N3'].includes(nRef)){
-        setAjccStage('IVb')
       }
     }else if(site === 'Nasopharynx'){
       if(['T0', 'T1', 'Tx'].includes(tRef) && ['N0'].includes(nRef)){
