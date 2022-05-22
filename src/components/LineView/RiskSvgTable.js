@@ -166,7 +166,7 @@ export const RiskSvgTable = ({
                         x={xScale(5) - 15}
                         y={xxEnd + padH + lineHeight + 7}
                         textAnchor='middle'
-                    >{`Overall Survival Probability (%)`}</text>
+                    >{`Cumulative Probability (%)`}</text>
                 </g>
                 {/* <rect x='25' y='40' width='310' height='20' fill='gainsboro'/>
                 <rect x='25' y='76' width='310' height='20' fill='gainsboro'/> */}                
