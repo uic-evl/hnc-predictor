@@ -24,6 +24,8 @@ Install R packages - r-prodlim, r-pec
    `python -m venv venv`
 3. Activate the virtual environment (windows)
    `.\venv\Scripts\activate`
+   (ubuntu)
+   `source venv/bin/activate`
 4. Install dependencies from requirements.txt
    `pip install -r requirements.txt`
 5. set up flask app

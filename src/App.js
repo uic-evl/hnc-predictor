@@ -5,7 +5,8 @@ import * as d3 from 'd3';
 
 import {Container, Row} from 'react-bootstrap'
 
-import {post} from 'axios'
+// import {post} from 'axios'
+import axios from 'axios';
 import {useState } from 'react';
 
 import {FormView} from './components/FormView'
@@ -129,9 +130,9 @@ function App() {
       "N_stage" : nRef,
       "HPV.P16.status" : hpvRef.current.value
     }
-    post(
-      'https://risk-calculator.evl.uic.edu:8080/backend',
-      // 'http://127.0.0.1:8080/backend',
+    axios.post(
+      // 'https://risk-calculator.evl.uic.edu:8080/backend',
+      'http://127.0.0.1:8000/backend',
       {data:val}
     ).then((response) => {
 
