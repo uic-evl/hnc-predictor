@@ -231,8 +231,8 @@ function App() {
             riskCalculation={riskCalculation}
           /> */}
           <Col md="10" className='d-flex justify-content-center align-items-center'>
-            <h1>This app is moved to a new address </h1>
-            <h2> <a href="http://risk-calculator.evl.uic.edu:3000/">http://risk-calculator.evl.uic.edu</a> </h2>
+            <h1>This app is moved to a new address:  </h1> <br />
+            <h2> <a href="http://risk-calculator.evl.uic.edu:3000/">http://risk-calculator.evl.uic.edu/3000</a> </h2>
           </Col>
         </Row>
       </Container>
