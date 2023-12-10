@@ -131,7 +131,7 @@ function App() {
       "HPV.P16.status": hpvRef.current.value
     }
     axios.post(
-      'https://risk-calculator.evl.uic.edu:8000/backend',
+      'http://risk-calculator.evl.uic.edu:8000/backend',
       // 'http://127.0.0.1:8000/backend',
       { data: val }
     ).then((response) => {
