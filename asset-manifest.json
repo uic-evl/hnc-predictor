@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hnc-predictor/static/css/main.f05f80e1.css",
-    "main.js": "/hnc-predictor/static/js/main.a550f4fa.js",
+    "main.js": "/hnc-predictor/static/js/main.b3f090c8.js",
     "static/js/787.fb08791f.chunk.js": "/hnc-predictor/static/js/787.fb08791f.chunk.js",
     "index.html": "/hnc-predictor/index.html",
     "main.f05f80e1.css.map": "/hnc-predictor/static/css/main.f05f80e1.css.map",
-    "main.a550f4fa.js.map": "/hnc-predictor/static/js/main.a550f4fa.js.map",
+    "main.b3f090c8.js.map": "/hnc-predictor/static/js/main.b3f090c8.js.map",
     "787.fb08791f.chunk.js.map": "/hnc-predictor/static/js/787.fb08791f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f05f80e1.css",
-    "static/js/main.a550f4fa.js"
+    "static/js/main.b3f090c8.js"
   ]
 }
